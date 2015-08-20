@@ -32,9 +32,6 @@
         function activate() {
             logger.info('Activated search View', $stateParams.embedded);
 
-
-            var biff = JSON.stringify({ "FormData": { "foo": "bar", "foo2": "bar2" } });
-
             if ($stateParams.mode == 'results') {
 
                 //TODO DH: extract query string parameters into "biff"
@@ -69,11 +66,15 @@
 
         function submit() {
 
-            // Widget example, go to results view in new page
+            // if app is in iframe an event will be raised to parent container when submit is clicked.
             if (inIframe) {
-                var x = window.top.location.assign(iframeArgs.quoteUrl);
-                x.postMessage("Biff", "http:biff.org");
-                console.log(x.location);
+                var m = {
+                    eventType: 'searchSubmitted',
+                    bag: vm.formModel
+                };
+                var message = JSON.stringify(m);
+                window.parent.postMessage(message, '*');
+
             } else {
                 vm.isLoading = true;
                 return quickSearch.getResults(vm.formModel).then(function (data) {

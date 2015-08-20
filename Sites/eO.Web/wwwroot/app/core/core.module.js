@@ -9,6 +9,7 @@
             'blocks.logger',
             'blocks.router',
             'blocks.forms',
+            'blocks.messanger',
             'ui.router',
             'ui.bootstrap',
             'duScroll'
