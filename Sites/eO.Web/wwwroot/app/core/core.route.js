@@ -11,7 +11,7 @@
         routerHelper.configureStates(getStates(), otherwise);
         forms.datePickerConfig(formlyConfig);
         forms.borrowerAliasConfig(formlyConfig);
-        messanger.messageListener();
+        messanger.init();
     }
 
     function getStates() {

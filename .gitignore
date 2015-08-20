@@ -11,4 +11,5 @@
 /Sites/eO.Web/wwwroot/vendor
 
 /eO.Web.Api/bin
+/eO.Web.Api/obj/Debug/
 *.dll
