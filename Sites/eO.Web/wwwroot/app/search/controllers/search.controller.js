@@ -5,11 +5,12 @@
         .module('app.search')
         .controller('SearchController', SearchController);
 
-    SearchController.$inject = ['$rootScope', '$stateParams', '$q', 'logger', '$timeout', 'quickSearchService', '$window'];
+    SearchController.$inject = ['$rootScope', '$stateParams', '$q', 'logger', '$timeout', 'quickSearchService', '$window', 'messanger'];
     /* @ngInject */
-    function SearchController($rootScope, $stateParams, $q, logger, $timeout, quickSearch, $window) {
+    function SearchController($rootScope, $stateParams, $q, logger, $timeout, quickSearch, $window, messanger) {
 
         var vm = this;
+
         if ($stateParams.embedded === 'true') {
             $rootScope.hideChrome = true;
         } else {
@@ -32,29 +33,35 @@
         function activate() {
             logger.info('Activated search View', $stateParams.embedded);
 
+
             if ($stateParams.mode == 'results') {
 
                 //TODO DH: extract query string parameters into "biff"
                 //TODO JA: update vm.formModel using "biff"
+                messanger.searchIsReady().then(function (data) {
+                    vm.bag = data;
+                    console.log(vm.bag);
 
-                $q.all([
-                    quickSearch.getFormConfig(),
-                    quickSearch.getResults(vm.formModel)
-                ]).then(function (data) {
-                    vm.data = data[0];
-                    vm.formFields = data[0].fields;
 
-                    vm.searchResults = data[1];
-                    vm.json = JSON.stringify(vm.formModel, null, 4);
+                    $q.all([
+                        quickSearch.getFormConfig(),
+                        quickSearch.getResults(vm.formModel)
+                    ]).then(function (data) {
+                        vm.data = data[0];
+                        vm.formFields = data[0].fields;
 
-                    
+                        vm.searchResults = data[1];
+                        vm.json = JSON.stringify(vm.formModel, null, 4);
 
-                    vm.showJson = true;
-                    vm.underScoreJson = underScoreFilter();
 
-                    //TODO JA: Bind variables from "biff"
 
-                })
+                        vm.showJson = true;
+                        vm.underScoreJson = underScoreFilter();
+
+                        //TODO JA: Bind variables from "biff"
+
+                    });
+                });
             }
             else {
                 quickSearch.getFormConfig().then(function (data) {
