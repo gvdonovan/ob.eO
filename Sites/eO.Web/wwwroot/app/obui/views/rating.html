@@ -1,0 +1,22 @@
+<div class="col-lg-12">
+  <div class="panel panel-primary">
+        <div class="panel-heading">Rating</div>
+        <div class="panel-body">
+            <div ng-controller="obuiRatingController as vm">
+                <h4>Default</h4>
+                <rating ng-model="vm.rate" max="vm.max" readonly="vm.isReadonly" on-hover="vm.hoveringOver(value)" on-leave="vm.overStar = null"></rating>
+                <span class="label" ng-class="{'label-warning': vm.percent<30, 'label-info': vm.percent>=30 && vm.percent<70, 'label-success': vm.percent>=70}" ng-show="vm.overStar && !vm.isReadonly">{{vm.percent}}%</span>
+
+                <pre style="margin:15px 0;">Rate: <b>{{vm.rate}}</b> - Readonly is: <i>{{vm.isReadonly}}</i> - Hovering over: <b>{{vm.overStar || "none"}}</b></pre>
+
+                <button class="btn btn-sm btn-danger" ng-click="vm.rate = 0" ng-disabled="vm.isReadonly">Clear</button>
+                <button class="btn btn-sm btn-default" ng-click="vm.isReadonly = ! vm.isReadonly">Toggle Readonly</button>
+                <hr />
+
+                <h4>Custom icons</h4>
+                <div ng-init="x = 5"><rating ng-model="x" max="15" state-on="'glyphicon-ok-sign'" state-off="'glyphicon-ok-circle'"></rating> <b>(<i>Rate:</i> {{x}})</b></div>
+                <div ng-init="y = 2"><rating ng-model="y" rating-states="vm.ratingStates"></rating> <b>(<i>Rate:</i> {{y}})</b></div>
+            </div>
+        </div>
+  </div>
+</div>

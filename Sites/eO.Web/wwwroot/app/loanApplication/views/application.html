@@ -1,0 +1,150 @@
+<!--
+<div class="jumbotron text-center">
+    <h1>{{vm.title}}</h1>
+    <p>1003 loans</p>
+</div>
+-->
+
+
+<p></p>
+
+<div class="col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+            <div id="status-buttons" class="text-center">
+                <a ng-repeat="item in vm.steps" ng-class="{'active': vm.activeState === item}"><span>&nbsp;</span>{{item}}</a>
+            </div>
+        </div>
+        <div class="panel-body" style="position:relative; min-height:500px; overflow-y: auto; overflow-x: hidden">
+            <form name="vm.loanForm" novalidate>
+                <div id="form-views" ui-view></div>
+            </form>
+        </div>
+        <div class="panel-footer clearfix">
+            <div class="pull-right">
+                <button class="btn btn-primary btn-sm" ng-show="!vm.isFirstStep" ng-click="vm.previousStep()"><span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp; Previous</button>
+                <button class="btn btn-primary btn-sm" ng-show="!vm.isLastStep" ng-click="vm.nextStep()">Next &nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span></button>
+                <button type="submit" class="btn btn-primary btn-sm" ng-disabled="vm.loanForm.$invalid"
+                        ng-show="vm.isLastStep" ng-click="vm.finish()">Finish &nbsp;<span class="glyphicon glyphicon-send"></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<pre>{{ vm.loanFormModel }}</pre>
+
+
+<style type="text/css">
+
+    /* numbered buttons */
+    #status-buttons {
+    }
+
+    #status-buttons a {
+        color: #000000;
+        display: inline-block;
+        font-size: 12px;
+        margin-right: 25px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    #status-buttons a:hover {
+        text-decoration: none;
+    }
+
+    /* we will style the span as the circled number */
+    #status-buttons span {
+        background: #337AC8;
+        display: block;
+        height: 10px;
+        margin: 0 auto 5px;
+        padding-top: 2px;
+        width: 10px;
+        border-radius: 50%;
+    }
+
+    /* active buttons turn light green-blue*/
+    #status-buttons a.active span {
+        background: #FF8C00;
+    }
+
+    #form-views {
+        width: auto;
+    }
+
+    /* basic styling for entering and leaving */
+    /* left and right added to ensure full width */
+    #form-views.ng-enter,
+    #form-views.ng-leave {
+        position: absolute;
+        left: 30px;
+        right: 30px;
+        transition: 0.5s all ease;
+        -moz-transition: 0.5s all ease;
+        -webkit-transition: 0.5s all ease;
+    }
+
+    /* enter animation */
+    #form-views.ng-enter {
+        -webkit-animation: slideInRight 0.5s both ease;
+        -moz-animation: slideInRight 0.5s both ease;
+        animation: slideInRight 0.5s both ease;
+    }
+
+    /* leave animation */
+    #form-views.ng-leave {
+        -webkit-animation: slideOutLeft 0.5s both ease;
+        -moz-animation: slideOutLeft 0.5s both ease;
+        animation: slideOutLeft 0.5s both ease;
+    }
+
+    /* ANIMATIONS
+    ============================================================================= */
+    /* slide out to the left */
+    @keyframes slideOutLeft {
+        to {
+            transform: translateX(-200%);
+        }
+    }
+
+    @-moz-keyframes slideOutLeft {
+        to {
+            -moz-transform: translateX(-200%);
+        }
+    }
+
+    @-webkit-keyframes slideOutLeft {
+        to {
+            -webkit-transform: translateX(-200%);
+        }
+    }
+
+    /* slide in from the right */
+    @keyframes slideInRight {
+        from {
+            transform: translateX(200%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    @-moz-keyframes slideInRight {
+        from {
+            -moz-transform: translateX(200%);
+        }
+        to {
+            -moz-transform: translateX(0);
+        }
+    }
+
+    @-webkit-keyframes slideInRight {
+        from {
+            -webkit-transform: translateX(200%);
+        }
+        to {
+            -webkit-transform: translateX(0);
+        }
+    }
+</style>

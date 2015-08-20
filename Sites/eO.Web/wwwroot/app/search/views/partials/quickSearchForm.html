@@ -1,0 +1,16 @@
+<div class="col-xs-6">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Quick Search</div>
+        <div class="panel-body">
+            <!--<form name="ngform" sf-model="vm.criteria" sf-form="vm.form" sf-schema="vm.schema"></form>-->
+            <form name="ngform" novalidate>
+                <formly-form model="vm.formModel" fields="vm.formFields"></formly-form>
+            </form>
+        </div>
+        <div class="panel-footer clearfix">
+            <button type="submit" class="btn btn-primary pull-right" ng-click="vm.submit()"
+                    ng-disabled="ngform.$invalid" du-smooth-scroll="searchResults" du-scrollspy>Submit
+            </button>
+        </div>
+    </div>
+</div>

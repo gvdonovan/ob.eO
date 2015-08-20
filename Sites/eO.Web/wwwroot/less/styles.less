@@ -1,0 +1,157 @@
+@ob-blue: #192a54;
+@0b-orange: #ee7421;
+
+
+// bootstrap variables
+
+@off-white: #ecf0f1;
+@light-grey: #bdc3c7;
+@blue: #3498db;
+@blue2: #2980b9;
+@purple: #9b59b6;
+@purple2: #8e44ad;
+@green: #2ecc71;
+@green2: #27ae60;
+@yellow: #f1c40f;
+@yellow2: #f39c12;
+@red: #e74c3c;
+@red2: #c0392b;
+@dark-blue: #2c3e50;
+@white: #fff;
+
+@padding: 1em;
+
+//.round-corners (@radius: 4px) {
+//  -moz-border-radius: @radius;
+//  -ms-border-radius: @radius;
+//  border-radius: @radius;
+//}
+//
+//.transition (@transition: background .3s linear) {
+//  -moz-transition: @transition;
+//  -webkit-transition: @transition;
+//  transition: @transition;
+//}
+//
+//.btn {
+//  text-transform: uppercase;
+//  padding: (@padding - 0.58) @padding;
+//  font-weight: bold;
+//
+//  .round-corners;
+//  .transition;
+//}
+//
+//.btn:hover {
+//  .transition;
+//}
+//
+//.btn-default {
+//  color: @dark-blue;
+//  border-color: @light-grey;
+//}
+//
+//.btn-default:hover {
+//  background-color: @light-grey;
+//  border-color: @light-grey;
+//}
+//
+//.btn-primary {
+//  background-color: @blue;
+//  border-color: @blue;
+//}
+//
+//.btn-primary:hover {
+//  background-color: @blue2;
+//  border-color: @blue2;
+//}
+//
+//.btn-info {
+//  background-color: @blue2;
+//  border-color: @blue2;
+//}
+//
+//.btn-info:hover {
+//  background-color: @dark-blue;
+//  border-color: @dark-blue;
+//}
+//
+//.btn-success {
+//  background-color: @green;
+//  border-color: @green;
+//}
+//
+//.btn-success:hover {
+//  background-color: @green2;
+//  border-color: @green2;
+//}
+//
+//.btn-warning {
+//  background-color: @yellow;
+//  border-color: @yellow;
+//}
+//
+//.btn-warning:hover {
+//  background-color: @yellow2;
+//  border-color: @yellow2;
+//}
+//
+//.btn-danger {
+//  background-color: @red;
+//  border-color: @red;
+//}
+//
+//.btn-danger:hover {
+//  background-color: @red2;
+//  border-color: @red;
+//}
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+[ui-view].ng-enter {
+    opacity: 0;
+}
+
+[ui-view].ng-enter-active {
+    opacity: 1;
+}
+
+[ui-view].ng-leave {
+    opacity: 1;
+}
+
+[ui-view].ng-leave-active {
+    opacity: 0;
+}
+
+/*
+    remove gap from navbar and remove rounded corners
+*/
+.navbar {
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+}
+
+.navbar-brand {
+  background: url('../img/logo-r-01.svg') no-repeat;
+  background-position: center;
+  width: 140px;
+}
+
+body {
+  color: @ob-blue;
+}
+
+// Specific fixes for Bootstrap UI for empty href issues with Angular JS
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.clickable {
+  cursor: pointer;
+}

@@ -1,0 +1,57 @@
+<style>
+    #loading {
+        background: rgba(51, 122, 200, .8) no-repeat 50% 50%;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+
+    .vertical-center {
+        min-height: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .fa.icon-orange {
+        color: darkorange;
+    }
+</style>
+
+
+<section>
+<!--
+    <div class="jumbotron text-center">
+        <h1>{{vm.title}}</h1>
+    </div>
+-->
+    <p></p>
+</section>
+
+
+<div ng-show="vm.isLoading">
+    <loadingspinner></loadingspinner>
+</div>
+
+<ng-include src="'app/search/views/partials/quickSearchForm.html'"></ng-include>
+
+<ng-include src="'app/search/views/partials/quickSearchResults.html'"></ng-include>
+
+<!--<div class="col-xs-12 col-md-6" ng-show="vm.showJson">-->
+    <!--<div class="panel panel-success">-->
+        <!--<div class="panel-heading">Form Captured Data</div>-->
+        <!--<div class="panel-body">{{vm.json}}</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="col-xs-12 col-md-6" ng-show="vm.underScoreJson.length > 0">-->
+    <!--<div class="panel panel-danger">-->
+        <!--<div class="panel-heading">loans with rebate >= 500</div>-->
+        <!--<div class="panel-body">{{vm.underScoreJson}}</div>-->
+    <!--</div>-->
+<!--</div>-->

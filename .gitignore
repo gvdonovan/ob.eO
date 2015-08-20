@@ -1,0 +1,14 @@
+/packages
+/.vs
+
+/Sites/eO.Web/.idea
+/Sites/eO.Web/.settings
+/Sites/eO.Web/.tmp
+/Sites/eO.Web/bower_components
+/Sites/eO.Web/node_modules
+/Sites/eO.Web/packages
+/Sites/eO.Web/report
+/Sites/eO.Web/wwwroot/vendor
+
+/eO.Web.Api/bin
+*.dll

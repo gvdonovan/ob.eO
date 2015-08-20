@@ -1,0 +1,34 @@
+<div id="searchResults" class="col-xs-6" ng-show="vm.searchResults != null"
+     ng-repeat="type in vm.searchResults">
+    <div class="panel panel-info">
+        <div class="panel-heading">{{type.title}}</div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-condensed table-hover">
+                    <thead>
+                    <tr>
+                        <th>Rate</th>
+                        <th>Disc Points</th>
+                        <th>APR</th>
+                        <th>Months Payment</th>
+                        <th>Closing Costs</th>
+                        <th>Rebate</th>
+                        <th>Apply</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in type.items">
+                        <td>{{item.rate}}</td>
+                        <td>{{item.discPoints}}</td>
+                        <td>{{item.apr}}</td>
+                        <td>{{item.months}}</td>
+                        <td>{{item.closingCost}}</td>
+                        <td>{{item.rebate}}</td>
+                        <td><a class="clickable" href="">Apply Now</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

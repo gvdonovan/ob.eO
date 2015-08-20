@@ -1,0 +1,45 @@
+<!--<div ng-repeat="alias in datasource track by $index">-->
+    <!--<div class="form-group col-xs-5">-->
+        <!--<label>First Name</label>-->
+        <!--<input type="text" class="form-control" placeholder="first name" ng-disabled="true" ng-model="alias.firstName">-->
+    <!--</div>-->
+    <!--<div class="form-group col-xs-5">-->
+        <!--<label>Last Name</label>-->
+        <!--<input type="text" class="form-control" placeholder="last name" ng-disabled="true" ng-model="alias.lastName">-->
+    <!--</div>-->
+    <!--<div class="form-group col-xs-2">-->
+        <!--<label></label>-->
+        <!--<a ng-click="vm.removeAlias(alias)"><i class="fa fa-remove"></i></a>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="table-responsive" ng-show="datasource.length > 0">
+    <table class="table table-condensed table-hover">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  ng-repeat="alias in datasource track by $index">
+            <td><input class="form-control input-sm" type="text" ng-model="alias.firstName"></td>
+            <td><input class="form-control input-sm" type="text" ng-model="alias.lastName"></td>
+            <td><span class="clickable"><a ng-click="vm.removeAlias($index)"><i class="fa fa-remove"></i></a></span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!--<div class="form-group col-xs-6">-->
+    <!--<label>First Name</label>-->
+    <!--<input type="text" class="form-control" placeholder="first name" ng-model="vm.firstName">-->
+<!--</div>-->
+<!--<div class="form-group col-xs-6">-->
+    <!--<label>Last Name</label>-->
+    <!--<input type="text" class="form-control" placeholder="last name" ng-model="vm.lastName">-->
+<!--</div>-->
+<div class="col-xs-12">
+    <button class="btn btn-primary btn-sm pull-right" ng-click="vm.addAlias()">Add Alias</button>
+</div>

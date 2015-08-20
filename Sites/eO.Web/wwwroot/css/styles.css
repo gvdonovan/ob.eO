@@ -1,0 +1,44 @@
+[ui-view].ng-enter,
+[ui-view].ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+[ui-view].ng-enter {
+  opacity: 0;
+}
+[ui-view].ng-enter-active {
+  opacity: 1;
+}
+[ui-view].ng-leave {
+  opacity: 1;
+}
+[ui-view].ng-leave-active {
+  opacity: 0;
+}
+/*
+    remove gap from navbar and remove rounded corners
+*/
+.navbar {
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+}
+.navbar-brand {
+  background: url('../img/logo-r-01.svg') no-repeat;
+  background-position: center;
+  width: 140px;
+}
+body {
+  color: #192a54;
+}
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
+}
+.clickable {
+  cursor: pointer;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Originations</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <base href="/">
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="vendor/css/bootstrap.css"/>
+    <link rel="stylesheet" href="vendor/css/jquery.datetimepicker.css"/>
+    <link rel="stylesheet" href="vendor/css/font-awesome.css"/>
+    <link rel="stylesheet" href="vendor/css/toastr.css"/>
+    <!-- endbower -->
+
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event) {
+            window.inIframe = false;
+            function angAppFunc(event) {
+                console.log("Angular app function called from outside, msg: "
+                            + event.data);
+                if (event.data != "OBHandshake") {
+                    window.iframeArgs = event.data;
+                    createCssLink(iframeArgs.cssUrl);
+                    inIframe = true;
+                }
+            }
+            function createCssLink(urlStr) {
+                var cssLink = document.createElement("link");
+                cssLink.href = urlStr;
+                cssLink.rel = "stylesheet";
+                cssLink.type = "text/css";
+                document.head.appendChild(cssLink);
+            }
+
+            window.parent.postMessage("OBHandshake", "*");
+
+            var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+            var eventer = window[eventMethod];
+            var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+            eventer(messageEvent, angAppFunc, false);
+
+        });
+    </script>
+</head>
+<body>
+
+
+    <div id="main">
+        <div ng-include="'app/layout/views/shell.html'"></div>
+    </div>
+
+    <!-- bower:js -->
+    <script src="vendor/js/jquery.js"></script>
+    <script src="vendor/js/angular.js"></script>
+    <script src="vendor/js/angular-animate.js"></script>
+    <script src="vendor/js/ui-bootstrap-tpls.js"></script>
+    <script src="vendor/js/api-check.js"></script>
+    <script src="vendor/js/formly.js"></script>
+    <script src="vendor/js/bootstrap.js"></script>
+    <script src="vendor/js/angular-formly-templates-bootstrap.js"></script>
+    <script src="vendor/js/angular-local-storage.js"></script>
+    <script src="vendor/js/angular-mocks.js"></script>
+    <script src="vendor/js/angular-sanitize.js"></script>
+    <script src="vendor/js/angular-scroll.js"></script>
+    <script src="vendor/js/angular-ui-router.js"></script>
+    <script src="vendor/js/jquery.datetimepicker.js"></script>
+    <script src="vendor/js/es6-shim.js"></script>
+    <script src="vendor/js/moment.js"></script>
+    <script src="vendor/js/toastr.js"></script>
+    <script src="vendor/js/underscore.js"></script>
+    <!-- endbower -->
+    <!-- lib:js -->
+    <script src="lib/account.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="app/app.module.js"></script>
+    <script src="app/account/account.module.js"></script>
+    <script src="app/admin/admin.module.js"></script>
+    <script src="app/blocks/exception/exception.module.js"></script>
+    <script src="app/blocks/forms/forms.module.js"></script>
+    <script src="app/blocks/logger/logger.module.js"></script>
+    <script src="app/blocks/router/router.module.js"></script>
+    <script src="app/core/core.module.js"></script>
+    <script src="app/home/home.module.js"></script>
+    <script src="app/layout/layout.module.js"></script>
+    <script src="app/loanApplication/loanApplication.module.js"></script>
+    <script src="app/obui/obui.module.js"></script>
+    <script src="app/results/results.module.js"></script>
+    <script src="app/search/search.module.js"></script>
+    <script src="app/account/account.route.js"></script>
+    <script src="app/account/controllers/account.controller.js"></script>
+    <script src="app/account/controllers/accounts.controller.js"></script>
+    <script src="app/account/services/accountService.js"></script>
+    <script src="app/admin/admin.route.js"></script>
+    <script src="app/admin/controllers/admin.controller.js"></script>
+    <script src="app/blocks/exception/exception-handler.provider.js"></script>
+    <script src="app/blocks/exception/exception.js"></script>
+    <script src="app/blocks/forms/forms.js"></script>
+    <script src="app/blocks/logger/logger.js"></script>
+    <script src="app/blocks/router/router-helper.provider.js"></script>
+    <script src="app/core/config.js"></script>
+    <script src="app/core/constants.js"></script>
+    <script src="app/core/core.route.js"></script>
+    <script src="app/core/dataservice.js"></script>
+    <script src="app/directives/common.js"></script>
+    <script src="app/directives/forms.js"></script>
+    <script src="app/home/controllers/home.controller.js"></script>
+    <script src="app/home/controllers/login.controller.js"></script>
+    <script src="app/home/controllers/register.controller.js"></script>
+    <script src="app/home/home.route.js"></script>
+    <script src="app/home/services/authInterceptorService.js"></script>
+    <script src="app/home/services/authService.js"></script>
+    <script src="app/layout/controllers/nav.controller.js"></script>
+    <script src="app/layout/controllers/shell.controller.js"></script>
+    <script src="app/layout/controllers/sidebar.controller.js"></script>
+    <script src="app/loanApplication/controllers/application.controller.js"></script>
+    <script src="app/loanApplication/loanApplication.route.js"></script>
+    <script src="app/loanApplication/services/loanApplicationService.js"></script>
+    <script src="app/obInclude.js"></script>
+    <script src="app/obui/controllers/obui.controller.js"></script>
+    <script src="app/obui/controllers/obuiAccordion.controller.js"></script>
+    <script src="app/obui/controllers/obuiAlert.controller.js"></script>
+    <script src="app/obui/controllers/obuiButtons.controller.js"></script>
+    <script src="app/obui/controllers/obuiCarousel.controller.js"></script>
+    <script src="app/obui/controllers/obuiCollapse.controller.js"></script>
+    <script src="app/obui/controllers/obuiDatepicker.controller.js"></script>
+    <script src="app/obui/controllers/obuiDropdown.controller.js"></script>
+    <script src="app/obui/controllers/obuiModal.controller.js"></script>
+    <script src="app/obui/controllers/obuiPagination.controller.js"></script>
+    <script src="app/obui/controllers/obuiPopover.controller.js"></script>
+    <script src="app/obui/controllers/obuiProgressbar.controller.js"></script>
+    <script src="app/obui/controllers/obuiRating.controller.js"></script>
+    <script src="app/obui/controllers/obuiTabs.controller.js"></script>
+    <script src="app/obui/controllers/obuiTimepicker.controller.js"></script>
+    <script src="app/obui/controllers/obuiTooltip.controller.js"></script>
+    <script src="app/obui/controllers/obuiTypeahead.controller.js"></script>
+    <script src="app/obui/obui.route.js"></script>
+    <script src="app/results/controllers/results.controller.js"></script>
+    <script src="app/results/results.route.js"></script>
+    <script src="app/results/services/resultsService.js"></script>
+    <script src="app/search/controllers/search.controller.js"></script>
+    <script src="app/search/search.route.js"></script>
+    <script src="app/search/services/quickSearchService.js"></script>
+    <!-- endinject -->
+
+</body>
+</html>

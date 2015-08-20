@@ -1,0 +1,53 @@
+<div class="jumbotron text-center">
+    <h1>Account</h1>
+</div>
+
+<div class="col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{vm.title}}</h3>
+        </div>
+        <div class="panel-body">
+            <form name="accountForm" novalidate>
+                <div class="form-group col-xs-4" ng-class="{ 'has-error' : accountForm.name.$invalid && !accountForm.name.$pristine }">
+                    <label class="control-label">Name</label>
+                    <input name="name" type="text" class="form-control" placeholder="Name" ng-model="vm.account.name" ng-minlength="vm.account.getMinLength('name')" ng-maxlength="vm.account.getMaxLength('name')">
+                </div>
+                <div class="form-group col-xs-4">
+                    <label class="control-label">Phone</label>
+                    <input type="tel" class="form-control" placeholder="Phone" ng-model="vm.account.phone">
+                </div>
+                <div class="form-group col-xs-4">
+                    <label class="control-label">Fax</label>
+                    <input type="text" class="form-control" placeholder="Fax" ng-model="vm.account.fax">
+                </div>
+                <div class="form-group col-xs-4">
+                    <label class="control-label">Site</label>
+                    <input type="text" class="form-control" placeholder="Site" ng-model="vm.account.site">
+                </div>
+                <div class="form-group col-xs-4">
+                    <label class="control-label">Address1</label>
+                    <input type="text" class="form-control" placeholder="Address1" ng-model="vm.account.address1">
+                </div>
+                <div class="form-group col-xs-4">
+                    <label class="control-label">Address2</label>
+                    <input type="text" class="form-control" placeholder="Address2" ng-model="vm.account.address2">
+                </div>
+                <div class="form-group col-xs-4">
+                    <label class="control-label">City</label>
+                    <input type="text" class="form-control" placeholder="City" ng-model="vm.account.city">
+                </div>
+                <div class="form-group col-xs-4">
+                    <label class="control-label">Zip</label>
+                    <input type="text" class="form-control" placeholder="Zip" ng-model="vm.account.zip">
+                </div>
+            </form>
+        </div>
+        <div class="panel-footer clearfix">
+            <div class="pull-right">
+                <button class="btn btn-danger btn-sm"><i class="fa fa-undo"></i>&nbsp;Cancel</button>
+                <button class="btn btn-success btn-sm"><i class="fa fa-save"></i>&nbsp;Save</button>
+            </div>
+        </div>
+    </div>
+</div>
