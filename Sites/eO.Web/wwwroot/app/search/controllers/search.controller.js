@@ -5,9 +5,9 @@
         .module('app.search')
         .controller('SearchController', SearchController);
 
-    SearchController.$inject = ['$rootScope', '$stateParams', '$q', 'logger', '$timeout', 'quickSearchService', '$window', 'messanger'];
+    SearchController.$inject = ['$rootScope', '$stateParams', '$q', 'logger', '$timeout', 'quickSearchService', '$window', 'messenger'];
     /* @ngInject */
-    function SearchController($rootScope, $stateParams, $q, logger, $timeout, quickSearch, $window, messanger) {
+    function SearchController($rootScope, $stateParams, $q, logger, $timeout, quickSearch, $window, messenger) {
         var vm = this;
 
         vm.embedded = false;
@@ -39,7 +39,7 @@
 
                 //TODO DH: extract query string parameters into "biff"
                 //TODO JA: update vm.formModel using "biff"
-                messanger.searchIsReady().then(function (data) {
+                messenger.searchIsReady().then(function (data) {
                     vm.bag = data;
                     console.log(vm.bag);
 

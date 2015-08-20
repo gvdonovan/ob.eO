@@ -9,7 +9,7 @@
             'blocks.logger',
             'blocks.router',
             'blocks.forms',
-            'blocks.messanger',
+            'blocks.messenger',
             'ui.router',
             'ui.bootstrap',
             'duScroll'

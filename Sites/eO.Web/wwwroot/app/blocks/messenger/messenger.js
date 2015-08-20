@@ -2,13 +2,13 @@
     'use strict';
 
     angular
-        .module('blocks.messanger')
-        .service('messanger', messanger);
+        .module('blocks.messenger')
+        .service('messenger', messenger);
 
-    messanger.$inject = ['$window', '$rootScope', '$q'];
+    messenger.$inject = ['$window', '$rootScope', '$q'];
 
     /* @ngInject */
-    function messanger($window, $rootScope, $q) {
+    function messenger($window, $rootScope, $q) {
         var service = {
             init: init,
             searchIsReady: searchIsReady
