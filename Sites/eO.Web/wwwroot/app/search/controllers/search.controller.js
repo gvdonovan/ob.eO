@@ -8,11 +8,12 @@
     SearchController.$inject = ['$rootScope', '$stateParams', '$q', 'logger', '$timeout', 'quickSearchService', '$window', 'messanger'];
     /* @ngInject */
     function SearchController($rootScope, $stateParams, $q, logger, $timeout, quickSearch, $window, messanger) {
-
         var vm = this;
 
+        vm.embedded = false;
         if ($stateParams.embedded === 'true') {
             $rootScope.hideChrome = true;
+            vm.embedded = true;
         } else {
             $rootScope.hideChrome = false;
         }
