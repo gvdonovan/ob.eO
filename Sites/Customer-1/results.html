@@ -31,12 +31,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- OB Javascript, Widget Injection -->
-    <script type="text/javascript" src="js/obWidget.1.0.0.js.js"></script>
+    <script type="text/javascript" src="js/obWidget.1.0.0.js"></script>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function (event) {
             var cssUrl = OBWidget.locationStr() + '/css/external.css';
             var resultsUrl = '/results.html';
-            OBWidget.initOBWidget('self', cssUrl, '350px', '750px', 'none', 'OBWidget', resultsUrl);
+            var internalApiUrl = '//localhost:62900/api/search/results'
+            OBWidget.initOBWidget('self', cssUrl, '350px', '750px', 'none', 'OBWidget', resultsUrl, internalApiUrl);
         });
     </script>
 

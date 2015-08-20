@@ -19,10 +19,11 @@
         return location.origin + location.pathname.substr(0,location.pathname.lastIndexOf('/'));
     },
      
-    initOBWidget    :   function(nav, cssUrl, width, height, border, includeId, resultsUrl) {
+    initOBWidget: function (nav, cssUrl, width, height, border, includeId, resultsUrl, internalApiUrl) {
         for(var key in arguments) {
             console.log(arguments[key]);
             this.initObj[key] = arguments[key];
+            this.initObj.src = internalApiUrl != null ? internalApiUrl : this.initObj.src;
         }
         this.createOBWidget();
     },
@@ -76,8 +77,12 @@
                     OBWidget.navigateResults();
                     break;
                 case 'searchResultsInit':
-                    var msgStr = JSON.stringify(this.argBag);
-                    this.iframeRef.contentWindow.postMessage(msgStr, '*');
+                    var biff = {
+                        eventType: 'searchData',
+                        bag: OBWidget.argBag
+                    };
+                    var msgStr = JSON.stringify(biff);
+                    OBWidget.iframeRef.contentWindow.postMessage(msgStr, '*');
                     break;
                 default:
                     break;
@@ -86,8 +91,7 @@
     },
      
     navigateResults :   function() {
-        var locStr = 
-            this.locationStr() + this.initObj.resultsUrl + '?' + OBWidget.utils.serialize(this.argBag);
+        var locStr = this.locationStr() + this.initObj.resultsUrl + '?' + OBWidget.utils.serialize(this.argBag);
         switch (this.initObj.nav) {
             case 'tab':
                 window.open(locStr);
@@ -135,33 +139,33 @@ OBWidget.utils = {
             }
         }
         return(parms);
-    },
-
-    // Local Storage Utils
-    setLocalStorage         :   function (varObj) {
-        if (!OBWidget.supportsLocalStorage()) {
-            return false;
-        }
-        localStorage.clear();
-        for (var index in varObj) {
-            localStorage[index] = varObj[index];
-        }
-        return true;
-    },
-
-    getLocalStorage         :   function () {
-        var lsObj = {};
-        for (var key in localStorage) {
-            lsObj[key] = localStorage[key];
-        }
-        return lsObj;
-    },
-
-    supportsLocalStorage    :   function () {
-        try {
-            return 'localStorage' in window && window['localStorage'] !== null;
-        } catch (e) {
-            return false;
-        }
     }
+
+    //// Local Storage Utils
+    //setLocalStorage         :   function (varObj) {
+    //    if (!OBWidget.supportsLocalStorage()) {
+    //        return false;
+    //    }
+    //    localStorage.clear();
+    //    for (var index in varObj) {
+    //        localStorage[index] = varObj[index];
+    //    }
+    //    return true;
+    //},
+
+    //getLocalStorage         :   function () {
+    //    var lsObj = {};
+    //    for (var key in localStorage) {
+    //        lsObj[key] = localStorage[key];
+    //    }
+    //    return lsObj;
+    //},
+
+    //supportsLocalStorage    :   function () {
+    //    try {
+    //        return 'localStorage' in window && window['localStorage'] !== null;
+    //    } catch (e) {
+    //        return false;
+    //    }
+    //}
 };
