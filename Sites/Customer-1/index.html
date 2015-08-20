@@ -30,22 +30,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- OB Javascript, Widget Injection -->
-    <script type="text/javascript" src="js/obInclude.js"></script>
+    <script type="text/javascript" src="js/obWidget.1.0.0.js"></script>
     <script type="text/javascript">
-          document.addEventListener("DOMContentLoaded", function (event) {
-            var quoteUrl = OBWidget.locationStr + "/results.html";
-            var cssUrl = OBWidget.locationStr + "/css/external.css";
-            var argObj = {
-              src: "http://localhost:62900/api/search/show/1/2/3",
-              width     : "350px",
-              height    : "750px",
-              border    : "none",
-              includeId : "obWidget",
-              cssUrl    : cssUrl,
-              quoteUrl  : quoteUrl
-            }
-            OBWidget.createOBWidget(argObj);
-          });
+        document.addEventListener('DOMContentLoaded', function (event) {
+            var cssUrl = OBWidget.locationStr() + '/css/external.css';
+            var resultsUrl = '/results.html';
+            OBWidget.initOBWidget('self', cssUrl, '350px', '750px', 'none', 'OBWidget');
+        });
     </script>
 
 
@@ -132,7 +123,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div id="obWidget"></div>
+                <div id="OBWidget"></div>
             </div>
         </div>
 
