@@ -57,14 +57,14 @@
 
     parentReceiver  :   function (event) {
         console.log('Container receiver called from inside iframe, msg: ' + event.data);
-        if (typeof event.data === 'string') {
+        var message = null;
             try {
-                event.data = JSON.parse(event.data);
+                message = JSON.parse(event.data);
             } catch(e) {
                 // Need the try since the interpreter thinks this is always an object
             }
-        }
-        var data = event.data;        
+        
+            var data = message;
         if(data.eventType) {
             switch(data.eventType) {                   
                 case 'OBWidgetInit':
@@ -73,7 +73,7 @@
                     break;
                 case 'searchSubmitted':
                     this.argBag = data.bag;
-                    this.navigateResults();
+                    OBWidget.navigateResults();
                     break;
                 case 'searchResultsInit':
                     var msgStr = JSON.stringify(this.argBag);
@@ -87,9 +87,8 @@
      
     navigateResults :   function() {
         var locStr = 
-            this.locationStr() + this.initObj.resultsUrl + '?' 
-            + OBWidget.utils.serialize(this.argBag);
-        switch(this.argObj.nav) {
+            this.locationStr() + this.initObj.resultsUrl + '?' + OBWidget.utils.serialize(this.argBag);
+        switch (this.initObj.nav) {
             case 'tab':
                 window.open(locStr);
                 break;

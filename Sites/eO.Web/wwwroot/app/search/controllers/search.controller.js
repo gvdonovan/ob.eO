@@ -75,7 +75,7 @@
         function submit() {
 
             // if app is in iframe an event will be raised to parent container when submit is clicked.
-            if (inIframe) {
+            if (vm.embedded) {
                 var m = {
                     eventType: 'searchSubmitted',
                     bag: vm.formModel
