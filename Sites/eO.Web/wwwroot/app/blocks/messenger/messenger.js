@@ -9,23 +9,27 @@
 
     /* @ngInject */
     function messenger($window, $rootScope, $q) {
+
+        var initialized = false;
+
         var service = {
             init: init,
             searchIsReady: searchIsReady
         };
 
-        var initialized = false;
-
         return service;
 
         function init() {
+
             if (!initialized) {
                 messageListener();
                 initialized = true;
             }
+
         }
 
         function searchIsReady() {
+
             var deferred = $q.defer();
             var m = {
                 eventType: 'searchResultsInit'
@@ -39,8 +43,11 @@
             return deferred.promise;
         }
 
-        /////////////////////
+        /*
+         * Establish hand-shake service
+         */        
         function messageListener() {
+
             $window.addEventListener('message', function (event) {
                 if (event.type === 'message') {
                     var message = null;

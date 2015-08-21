@@ -59,9 +59,12 @@
 
         function searchAndResults() {
             return messenger.searchIsReady().then(function (data) {
+                //TODO JA refactor
                 vm.bag = data;
                 console.log(vm.bag);
-
+                vm.bag.purchasePrice = Number(vm.bag.purchasePrice);
+                vm.bag.downPayment = Number(vm.bag.downPayment);
+                vm.formModel = vm.bag;
 
                 $q.all([
                     quickSearch.getFormConfig(),
