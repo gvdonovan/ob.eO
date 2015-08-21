@@ -49,14 +49,6 @@
         // listen for iframe init message
         window.addEventListener('message', OBWidget.parentReceiver, false);
     },
-     
-    initializeArgs  :   function(custObj) {
-        for (var key in OBWidget.initObj) {
-            if(custObj[key]) {
-                OBWidget.initObj[key] = custObj[key];
-            }
-        }
-    },
 
     parentReceiver  :   function (event) {
         console.log('Container receiver called from inside iframe, msg: ' + event.data);
