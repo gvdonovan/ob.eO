@@ -24,6 +24,17 @@
         vm.searchResults = [];
         vm.formModel = {};
         vm.formFields = [];
+        vm.plainFormModel = {};
+        vm.plainFormFields = [
+            {
+                key: 'someText',
+                type: 'plaininput',
+                templateOptions: {
+                    label: 'This Is a Label',
+                    type: 'number'
+                }
+            }
+        ];
 
         activate();
 

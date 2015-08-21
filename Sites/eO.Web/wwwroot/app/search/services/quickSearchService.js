@@ -5,9 +5,9 @@
         .module('app.search')
         .factory('quickSearchService', QuickSearchService);
 
-    QuickSearchService.$inject = ['$q', 'logger'];
+    QuickSearchService.$inject = ['$q', 'logger', '$http'];
 
-    function QuickSearchService($q, logger) {
+    function QuickSearchService($q, logger, $http) {
         var service = {
             getFormConfig: getFormConfig,
             getResults: getResults
@@ -17,10 +17,20 @@
 
         return service;
 
+        function httpExample() {
+           return $http.post('/someUrl', { msg: 'hello word!' })
+                .then(function (response) {
+                    // this callback will be called asynchronously
+                    // when the response is available
+                }, function (response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+        }
+
         function getFormConfig() {
             var deferred = $q.defer();
-            if(quickSearchFormConfig == null)
-            {
+            if (quickSearchFormConfig == null) {
                 quickSearchFormConfig = init();
             }
             deferred.resolve(quickSearchFormConfig);
@@ -38,8 +48,6 @@
             }
             return deferred.promise;
         }
-
-        ////////////////////// Privates
 
         function getMockedResults() {
             var results = [
@@ -177,7 +185,7 @@
             return results;
         }
 
-        function init(){
+        function init() {
             var data = {
                 fields: [
                     {

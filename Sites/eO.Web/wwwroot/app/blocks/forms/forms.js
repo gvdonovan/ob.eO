@@ -11,7 +11,8 @@
     function forms() {
         var service = {
             datePickerConfig: datePickerConfig,
-            borrowerAliasConfig: borrowerAliasConfig
+            borrowerAliasConfig: borrowerAliasConfig,
+            plainInputsConfig: plainInputsConfig
         };
 
         return service;
@@ -35,6 +36,14 @@
             formlyConfig.setType({
                 name: 'alias',
                 templateUrl: 'app/blocks/forms/templates/alias.html',
+            });
+        };
+
+
+        function plainInputsConfig(formlyConfig) {
+            formlyConfig.setType({
+                name: 'plaininput',
+                templateUrl: 'app/blocks/forms/templates/plainInputs/text.html'
             });
         };
     }

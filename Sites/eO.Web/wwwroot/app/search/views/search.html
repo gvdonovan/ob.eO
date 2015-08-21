@@ -15,6 +15,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
         flex-direction: column;
     }
 
@@ -25,11 +27,6 @@
 
 
 <section>
-<!--
-    <div class="jumbotron text-center">
-        <h1>{{vm.title}}</h1>
-    </div>
--->
     <p></p>
 </section>
 
@@ -38,20 +35,14 @@
     <loadingspinner></loadingspinner>
 </div>
 
-<ng-include src="'app/search/views/partials/quickSearchForm.html'"></ng-include>
+<!-- TODO logic for bootstrap or vanilla css -->
+<div ng-if="true">
+    <ng-include src="'app/search/views/partials/quickSearchForm.html'"></ng-include>
 
-<ng-include src="'app/search/views/partials/quickSearchResults.html'"></ng-include>
+    <ng-include src="'app/search/views/partials/quickSearchResults.html'"></ng-include>
+</div>
+<div ng-if="false">
+    <ng-include src="'app/search/views/partials/plainQuickSearchForm.html'"></ng-include>
 
-<!--<div class="col-xs-12 col-md-6" ng-show="vm.showJson">-->
-    <!--<div class="panel panel-success">-->
-        <!--<div class="panel-heading">Form Captured Data</div>-->
-        <!--<div class="panel-body">{{vm.json}}</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-<!--<div class="col-xs-12 col-md-6" ng-show="vm.underScoreJson.length > 0">-->
-    <!--<div class="panel panel-danger">-->
-        <!--<div class="panel-heading">loans with rebate >= 500</div>-->
-        <!--<div class="panel-body">{{vm.underScoreJson}}</div>-->
-    <!--</div>-->
-<!--</div>-->
+    <ng-include src="'app/search/views/partials/plainQuickSearchResults.html'"></ng-include>
+</div>

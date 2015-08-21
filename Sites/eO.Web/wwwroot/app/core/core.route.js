@@ -11,6 +11,7 @@
         routerHelper.configureStates(getStates(), otherwise);
         forms.datePickerConfig(formlyConfig);
         forms.borrowerAliasConfig(formlyConfig);
+        forms.plainInputsConfig(formlyConfig);
         messenger.init();
     }
 

@@ -1,0 +1,46 @@
+﻿<div ng-class="vm.embedded == true ? 'widthFull' : 'widthQuarter'">
+    <div class="panel bottomMargin">
+        <div class="heading">Search</div>
+        <form>
+            <div class="widthFull" id="marginTop1em">
+                <label class="widthThird">Occupancy: </label>
+                <select class="widthSixty" id="plainSelect" /><br>
+            </div>
+
+            <div class="widthFull" id="marginTop1em">
+                <label class="widthThird">Property Type: </label>
+                <select class="widthSixty" id="plainSelect" /><br>
+            </div>
+
+            <div class="widthFull" id="marginTop1em">
+                <label class="widthThird">Loan Purpose: </label>
+                <input class="widthSixty" type="text" id="plainText" /><br>
+            </div>
+
+            <div class="widthFull" id="marginTop1em">
+                <label class="widthThird">Purchase Price: </label>
+                <input class="widthSixty" type="number" id="plainNumber" /><br>
+            </div>
+
+            <div class="widthFull" id="marginTop1em">
+                <label class="widthThird">Down Payment: </label>
+                <input class="widthSixty" type="number" id="plainNumber" /><br>
+            </div>
+
+            <div class="widthFull" id="marginTop1em">
+                <label class="widthThird">Zip: </label>
+                <input class="widthSixty" type="text" id="plainText" /><br>
+            </div>
+
+            <div class="widthFull" id="marginTop1em">
+                <label class="widthThird">Credit Score: </label>
+                <input class="widthSixty" type="text" id="plainText" /><br>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<form name="plainForm" novalidate>
+    <formly-form model="vm.plainFormModel" fields="vm.plainFormFields"></formly-form>
+</form>
