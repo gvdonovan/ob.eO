@@ -7,10 +7,7 @@
         'app.home',
         'app.admin',
         'app.search',
-        'app.account',
-        'app.obui',
-        'app.loanApplication',
-        'app.results'
+        'app.loanApplication'
     ]);
   
 })();
