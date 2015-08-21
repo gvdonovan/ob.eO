@@ -26,7 +26,6 @@
         for (var key in argArr) {
             OBWidget.initObj[argArr[key]] = arguments[key];
             OBWidget.initObj.src = internalApiUrl != null ? internalApiUrl : OBWidget.initObj.src;
-            console.log(OBWidget.initObj['width']);
         }
         OBWidget.createOBWidget();
     },
