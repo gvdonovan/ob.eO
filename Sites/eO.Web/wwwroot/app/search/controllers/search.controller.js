@@ -18,14 +18,10 @@
             $rootScope.hideChrome = false;
         }
 
-        //$rootScope.hideChrome = $stateParams.embedded;
         vm.title = 'Quick Search';
         vm.submit = submit;
         vm.isLoading = false;
-        vm.showJson = false;
-        vm.json = "";
         vm.searchResults = [];
-        vm.underScoreJson = "";
         vm.formModel = {};
         vm.formFields = [];
 
@@ -34,46 +30,15 @@
         function activate() {
             logger.info('Activated search View', $stateParams.embedded);
 
-
             if ($stateParams.mode == 'results') {
-
-                //TODO DH: extract query string parameters into "biff"
-                //TODO JA: update vm.formModel using "biff"
-                messenger.searchIsReady().then(function (data) {
-                    vm.bag = data;
-                    console.log(vm.bag);
-
-
-                    $q.all([
-                        quickSearch.getFormConfig(),
-                        quickSearch.getResults(vm.formModel)
-                    ]).then(function (data) {
-                        vm.data = data[0];
-                        vm.formFields = data[0].fields;
-
-                        vm.searchResults = data[1];
-                        vm.json = JSON.stringify(vm.formModel, null, 4);
-
-
-
-                        vm.showJson = true;
-                        vm.underScoreJson = underScoreFilter();
-
-                        //TODO JA: Bind variables from "biff"
-
-                    });
-                });
+                searchAndResults();
             }
             else {
-                quickSearch.getFormConfig().then(function (data) {
-                    vm.data = data;
-                    vm.formFields = data.fields;
-                });
+                getSearchForm();
             }
         }
 
         function submit() {
-
             // if app is in iframe an event will be raised to parent container when submit is clicked.
             if (vm.embedded) {
                 var m = {
@@ -87,23 +52,36 @@
                 vm.isLoading = true;
                 return quickSearch.getResults(vm.formModel).then(function (data) {
                     vm.searchResults = data;
-                    vm.json = JSON.stringify(vm.formModel, null, 4);
-                    vm.showJson = true;
-                    vm.underScoreJson = underScoreFilter();
-                    $timeout(function () {
-                        vm.isLoading = false;
-                    }, 500);
+                    vm.isLoading = false;
                 });
             }
         }
 
-        function underScoreFilter() {
-            var biff = _.pluck(vm.searchResults, 'items');
-            var flat = _.flatten(biff);
-            var x = _.filter(flat, function (item) {
-                return item.rebate >= 500;
+        function searchAndResults() {
+            return messenger.searchIsReady().then(function (data) {
+                vm.bag = data;
+                console.log(vm.bag);
+
+
+                $q.all([
+                    quickSearch.getFormConfig(),
+                    quickSearch.getResults(vm.formModel)
+                ]).then(function (data) {
+                    vm.data = data[0];
+                    vm.formFields = data[0].fields;
+
+                    vm.searchResults = data[1];
+                    //TODO JA: Bind variables from "biff"
+
+                });
             });
-            return x;
+        }
+
+        function getSearchForm() {
+            return quickSearch.getFormConfig().then(function (data) {
+                vm.data = data;
+                vm.formFields = data.fields;
+            });
         }
     }
 })();
