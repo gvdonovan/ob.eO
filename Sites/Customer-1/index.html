@@ -35,7 +35,7 @@
         document.addEventListener('DOMContentLoaded', function (event) {
             var cssUrl = OBWidget.locationStr() + '/css/external.css';
             var resultsUrl = '/results.html';
-            OBWidget.initOBWidget('self', cssUrl, '350px', '750px', 'none', 'OBWidget', resultsUrl);
+            OBWidget.initOBWidget('self', cssUrl, '350px', '750px', 'none', 'OBWidget', resultsUrl, null, true);
         });
     </script>
 
@@ -87,7 +87,7 @@
     <div class="container">
         <!-- Example row of columns -->
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <h2>Start Your Online Mortgage Process</h2>
                 <div>
                     <h4>Run Custom Search</h4>
@@ -105,7 +105,7 @@
                 <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
             </div>
 
-            <div class="col-md-4">
+            <!--<div class="col-md-4">
                 <iframe width="190px" height="285px" frameborder="0" src="//www.optimalblue.com/BlueApplication/DynamicTeaserIFrame.aspx?GUID=f16069b2-89a0-4c49-86c9-878fa2c8deef" onload="this.height=this.contentWindow.document.body.scrollHeight;"></iframe>
                 <div class="bgContactHeader" width="192" height="49">
                     SPEAK TO A
@@ -121,7 +121,7 @@
                         <div style="font: bold 12px/20px arial;"><a href="//gold.loansifter.com/Contact-Us" class="lc" style="color: #8e4a1b;">Contact Us &gt;</a></div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="col-md-4">
                 <div id="OBWidget"></div>
             </div>
