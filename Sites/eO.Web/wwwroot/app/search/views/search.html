@@ -36,12 +36,12 @@
 </div>
 
 <!-- TODO logic for bootstrap or vanilla css -->
-<div ng-if="true">
+<div ng-if="vm.useBootstrap">
     <ng-include src="'app/search/views/partials/quickSearchForm.html'"></ng-include>
 
     <ng-include src="'app/search/views/partials/quickSearchResults.html'"></ng-include>
 </div>
-<div ng-if="false">
+<div ng-if="!vm.useBootstrap">
     <ng-include src="'app/search/views/partials/plainQuickSearchForm.html'"></ng-include>
 
     <ng-include src="'app/search/views/partials/plainQuickSearchResults.html'"></ng-include>

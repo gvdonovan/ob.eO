@@ -33,6 +33,7 @@
 
             $rootScope.$on('obWidgetContract', function (ev, args) {
                 createCssLink(args.cssUrl);
+                $rootScope.useBootstrap = args.bootstrap ? true : false;
             });
         }
 
