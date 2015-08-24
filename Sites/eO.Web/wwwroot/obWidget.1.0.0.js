@@ -24,32 +24,32 @@
         },
 
         initOBWidget : function (nav, cssUrl, width, height, border, includeId, resultsUrl, internalApiUrl, search) {
-            var argArr = OBWidget.utils.getFnParamNames(OBWidget.initOBWidget);
+            var argArr = widget.utils.getFnParamNames(widget.initOBWidget);
             for (var key in argArr) {
-                OBWidget.initObj[argArr[key]] = arguments[key];
-                OBWidget.initObj.src = internalApiUrl != null ? internalApiUrl : OBWidget.initObj.src;
+                widget.initObj[argArr[key]] = arguments[key];
+                widget.initObj.src = internalApiUrl != null ? internalApiUrl : widget.initObj.src;
             }
-            OBWidget.createOBWidget();
+            widget.createOBWidget();
         },
 
         createOBWidget : function () {
             // create argument bag from query string
-            OBWidget.argBag = OBWidget.utils.getUrlVars();
+            widget.argBag = widget.utils.getUrlVars();
 
             // create iframe widget with customer arguments or defaults        
             var iframe = document.createElement('iframe');
-            iframe.src = OBWidget.initObj.src;
-            iframe.width = OBWidget.initObj.width;
-            iframe.height = OBWidget.initObj.height;
-            iframe.style.border = OBWidget.initObj.border;
-            document.getElementById(OBWidget.initObj.includeId).appendChild(iframe);
-            OBWidget.iframeRef = document
-            .getElementById(OBWidget.initObj.includeId)
+            iframe.src = widget.initObj.src;
+            iframe.width = widget.initObj.width;
+            iframe.height = widget.initObj.height;
+            iframe.style.border = widget.initObj.border;
+            document.getElementById(widget.initObj.includeId).appendChild(iframe);
+            widget.iframeRef = document
+            .getElementById(widget.initObj.includeId)
             .getElementsByTagName('iframe')[0];
-            console.log('OB Widget created: ' + OBWidget.iframeRef);
+            console.log('OB Widget created: ' + widget.iframeRef);
 
             // listen for iframe init message
-            window.addEventListener('message', OBWidget.parentReceiver, false);
+            window.addEventListener('message', widget.parentReceiver, false);
         },
 
         parentReceiver : function (event) {
@@ -66,23 +66,23 @@
                 switch(data.eventType) {                   
                     case 'OBWidgetInit':
                         console.log('OBWidgetInit');
-                        var msgStr = JSON.stringify(OBWidget.initObj);
-                        OBWidget.iframeRef.contentWindow.postMessage(msgStr, '*');
+                        var initStr = JSON.stringify(widget.initObj);
+                        widget.iframeRef.contentWindow.postMessage(initStr, '*');
                         break;
                     case 'searchSubmitted':
                         console.log('searchSubmitted');
-                        OBWidget.argBag = data.bag;
-                        console.log(OBWidget.argBag);
-                        OBWidget.navigateResults();
+                        widget.argBag = data.bag;
+                        console.log(widget.argBag);
+                        widget.navigateResults();
                         break;
                     case 'searchResultsInit':
                         console.log('searchResultsInit');
                         var biff = {
                             eventType: 'searchData',
-                            bag: OBWidget.argBag
+                            bag: widget.argBag
                         };
                         var msgStr = JSON.stringify(biff);
-                        OBWidget.iframeRef.contentWindow.postMessage(msgStr, '*');
+                        widget.iframeRef.contentWindow.postMessage(msgStr, '*');
                         break;
                     default:
                         break;
@@ -91,11 +91,14 @@
         },
 
         navigateResults : function() {
-            var locStr = OBWidget.locationStr() + OBWidget.initObj.resultsUrl + '?' + OBWidget.utils.serialize(OBWidget.argBag);
-            console.log(OBWidget.argBag);
-            switch (OBWidget.initObj.nav) {
+            var locStr = widget.locationStr() + widget.initObj.resultsUrl + '?' + widget.utils.serialize(widget.argBag);
+            console.log(widget.argBag);
+            switch (widget.initObj.nav) {
                 case 'tab':
                     window.open(locStr);
+                    break;
+                case 'self':
+                    window.location.href = locStr;
                     break;
                 default:                
                     window.location.href = locStr;
@@ -104,7 +107,7 @@
         },
 
         testRef : function() {
-            console.log("test ref: " + document.getElementById(OBWidget.initObj.includeId));
+            console.log("test ref: " + document.getElementById(widget.initObj.includeId));
         }
 
     };
