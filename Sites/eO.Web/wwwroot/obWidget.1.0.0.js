@@ -4,14 +4,15 @@
         urlVars : {},
         initObj : {            
             nav: 'self',
-            src: '//localhost:62900/api/search/show/1/2/3',
+            src: '//www.optimalblue.com',
+            searchApi: '//localhost:62900/api/search/show/1/2/3',
+            resultsApi: '//localhost:62900/api/search/results',
             width: '350px',
             height: '1000px',
             border: 'none',
             includeId: 'OBWidget',
             cssUrl: '',
             resultsUrl: '/results.html',
-            internalApiUrl: null,
             search: true,
             bootstrap: true
         },
@@ -22,14 +23,17 @@
             return location.origin + location.pathname.substr(0,location.pathname.lastIndexOf('/'));
         },
 
-        initOBWidget : function (nav, cssUrl, width, height, border, includeId, resultsUrl, internalApiUrl, search) {
+        initOBWidget : function (nav, cssUrl, width, height, border, includeId, resultsUrl, searchApi, resultsApi, search, bootstrap) {
             var argArr = widget.utils.getFnParamNames(widget.initOBWidget);
             for (var key in argArr) {
                 widget.initObj[argArr[key]] = arguments[key];
-                widget.initObj.src = internalApiUrl != null ? internalApiUrl : widget.initObj.src;
-
             }
-            console.log(widget.initObj['cssUrl']);
+            if(searchApi != null) {
+                widget.initObj.src = searchApi;
+            } else if(resultsApi != null) {
+                widget.initObj.src = resultsApi;
+            }
+            console.log(widget.initObj['resultsApi']);
             widget.createOBWidget();
         },
 
