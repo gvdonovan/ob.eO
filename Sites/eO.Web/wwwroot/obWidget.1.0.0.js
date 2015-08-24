@@ -2,19 +2,18 @@
     var widget = {
         iframeRef : '',
         urlVars : {},
-        initObj : {
-            eventType : 'obWidgetContract',
-            nav : 'self',
-            src : '//localhost:62900/api/search/show/1/2/3',
-            width : '350px',
-            height : '1000px',
-            border : 'none',
-            includeId : 'OBWidget',
-            cssUrl : '',
-            resultsUrl : '/results.html',
-            internalApiUrl : null,
-            search : true,
-            bootstrap : true
+        initObj : {            
+            nav: 'self',
+            src: '//localhost:62900/api/search/show/1/2/3',
+            width: '350px',
+            height: '1000px',
+            border: 'none',
+            includeId: 'OBWidget',
+            cssUrl: '',
+            resultsUrl: '/results.html',
+            internalApiUrl: null,
+            search: true,
+            bootstrap: true
         },
         argBag : {
             eventType : 'searchData'
@@ -28,7 +27,9 @@
             for (var key in argArr) {
                 widget.initObj[argArr[key]] = arguments[key];
                 widget.initObj.src = internalApiUrl != null ? internalApiUrl : widget.initObj.src;
+
             }
+            console.log(widget.initObj['cssUrl']);
             widget.createOBWidget();
         },
 
@@ -66,7 +67,11 @@
                 switch(data.eventType) {                   
                     case 'OBWidgetInit':
                         console.log('OBWidgetInit');
-                        var initStr = JSON.stringify(widget.initObj);
+                        var initBag = {
+                            eventType: 'obWidgetContract',
+                            bag: widget.initObj
+                        };
+                        var initStr = JSON.stringify(initBag);
                         widget.iframeRef.contentWindow.postMessage(initStr, '*');
                         break;
                     case 'searchSubmitted':
