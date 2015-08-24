@@ -1,3 +1,10 @@
-﻿.navbar-default {
+﻿/*
+    Use default bootstrap v3 styles to override elements
+
+    Ex: Navbar
+
+.navbar-default {
   background-color: #f00;
 }
+
+*/
