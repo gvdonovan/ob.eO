@@ -41,8 +41,10 @@
 
     <ng-include src="'app/search/views/partials/quickSearchResults.html'"></ng-include>
 </div>
-<div ng-if="false">
+<div ng-if="true">
     <ng-include src="'app/search/views/partials/plainQuickSearchForm.html'"></ng-include>
 
     <ng-include src="'app/search/views/partials/plainQuickSearchResults.html'"></ng-include>
+
+    <pre>{{vm.plainFormModel | json}}</pre>
 </div>

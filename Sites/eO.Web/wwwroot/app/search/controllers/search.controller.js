@@ -26,14 +26,121 @@
         vm.formFields = [];
         vm.plainFormModel = {};
         vm.plainFormFields = [
-            {
-                key: 'someText',
-                type: 'plaininput',
-                templateOptions: {
-                    label: 'This Is a Label',
-                    type: 'number'
-                }
-            }
+                    {
+                        key: 'occupancy',
+                        type: 'plainselect',
+                        defaultValue: 'owner_occupied',
+                        templateOptions: {
+                            label: 'Occupancy',
+                            options: [
+                                {
+                                    label: 'Owner Occupied',
+                                    value: 'owner_occupied'
+                                },
+                                {
+                                    label: 'Other',
+                                    value: 'other'
+                                },
+                                {
+                                    label: 'Biff',
+                                    value: 'biff'
+                                },
+                            ],
+                        }
+                    },
+                    {
+                        key: 'propertyType',
+                        type: 'plainselect',
+                        templateOptions: {
+                            label: 'Property Type',
+                            options: [
+                                {
+                                    label: 'Single Family',
+                                    value: 'single_family'
+                                },
+                                {
+                                    label: 'PUD',
+                                    value: 'pud'
+                                },
+                                {
+                                    label: 'Multi-Family',
+                                    value: 'multi_family'
+                                },
+                                {
+                                    label: 'Manufactured / Single Wide',
+                                    value: 'manufactured_single_wide'
+                                },
+                                {
+                                    label: 'Manufactured / Double Wide',
+                                    value: 'manufactured_double_wide'
+                                },
+                                {
+                                    label: 'Timeshare',
+                                    value: 'timeshare'
+                                },
+                                {
+                                    label: 'Condotel',
+                                    value: 'condotel'
+                                },
+                                {
+                                    label: 'Non-warrantable Condo',
+                                    value: 'non_warrantable_condo'
+                                },
+                                {
+                                    label: 'Modular',
+                                    value: 'modular'
+                                },
+                            ],
+                            required: false
+                        }
+                    },
+                    {
+                        key: 'loanPurpose',
+                        type: 'plaininput',
+                        templateOptions: {
+                            label: 'Loan Purpose',
+                            type: 'text',
+                            required: false
+                        }
+                    },
+                    {
+                        key: 'purchasePrice',
+                        type: 'plaininput',
+                        templateOptions: {
+                            label: 'Purchase Price',
+                            type: 'number',
+                            placeholder: '0.00',
+                            required: false
+                        }
+                    },
+                    {
+                        key: 'downPayment',
+                        type: 'plaininput',
+                        templateOptions: {
+                            label: 'Down Payment',
+                            type: 'number',
+                            placeholder: '0.00',
+                            required: false
+                        }
+                    },
+                    {
+                        key: 'zip',
+                        type: 'plaininput',
+                        templateOptions: {
+                            label: 'Zip',
+                            type: 'text',
+                            required: false
+                        }
+                    },
+                    {
+                        key: 'creditScore',
+                        type: 'plaininput',
+                        templateOptions: {
+                            label: 'Credit Score',
+                            type: 'text',
+                            required: false
+                        }
+                    }
         ];
 
         activate();

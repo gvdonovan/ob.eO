@@ -1,0 +1,4 @@
+﻿<div id="select-wrapper">
+    <label id="select-label">{{options.templateOptions.label}}</label>
+    <select ng-model="model[options.key]" ng-options="item.value as item.label for item in options.templateOptions.options" id="select-box" />
+</div>
