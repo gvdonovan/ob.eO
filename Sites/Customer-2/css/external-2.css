@@ -1,3 +1,50 @@
-﻿.navbar-default {
-  background-color: #f00;
+﻿
+/*CustomerContract*/
+#plainPanel {
+    border: 1px solid #F0F0F0;
 }
+
+#plainPanel #heading {
+    padding: 2px;
+    background-color: #ff0000;
+}
+
+#inputs-padding {
+    padding: 1em;
+}
+
+#input-wrapper {
+    width: 98%;
+}
+
+#input-label {
+    width: 33%;
+}
+
+#input-box {
+    width: 66%;
+}
+
+#select-wrapper {
+    width: 98%;
+}
+
+#select-label {
+    width: 33%;
+}
+
+#select-box {
+    width: 66%;
+}
+
+.widthFull {
+    width: 100%;
+}
+
+.widthQuarter {
+    display: inline-block;
+    width: 24%;
+    vertical-align: top;
+}
+
+/*EndCustomerContract*/
