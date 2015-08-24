@@ -1,4 +1,4 @@
-﻿<div ng-class="vm.embedded == true ? 'widthFull' : 'widthQuarter'">
+﻿<!--<div ng-class="vm.embedded == true ? 'widthFull' : 'widthQuarter'">
     <div class="panel bottomMargin">
         <div class="heading">Search</div>
         <form>
@@ -38,9 +38,16 @@
             </div>
         </form>
     </div>
+</div>-->
+
+
+<div ng-class="vm.embedded == true ? 'widthFull' : 'widthQuarter'">
+    <div id="plainPanel">
+        <div id="heading">Search</div>
+        <div id="inputs-padding">
+            <form name="plainForm" novalidate>
+                <formly-form model="vm.plainFormModel" fields="vm.plainFormFields"></formly-form>
+            </form>
+        </div>
+    </div>
 </div>
-
-
-<form name="plainForm" novalidate>
-    <formly-form model="vm.plainFormModel" fields="vm.plainFormFields"></formly-form>
-</form>

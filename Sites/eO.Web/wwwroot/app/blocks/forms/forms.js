@@ -43,7 +43,12 @@
         function plainInputsConfig(formlyConfig) {
             formlyConfig.setType({
                 name: 'plaininput',
-                templateUrl: 'app/blocks/forms/templates/plainInputs/text.html'
+                templateUrl: 'app/blocks/forms/templates/plainInputs/input.html'
+            });
+
+            formlyConfig.setType({
+                name: 'plainselect',
+                templateUrl: 'app/blocks/forms/templates/plainInputs/select.html',
             });
         };
     }

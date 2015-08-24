@@ -18,14 +18,14 @@
         return service;
 
         function httpExample() {
-           return $http.post('/someUrl', { msg: 'hello word!' })
-                .then(function (response) {
-                    // this callback will be called asynchronously
-                    // when the response is available
-                }, function (response) {
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
-                });
+            return $http.post('/someUrl', { msg: 'hello word!' })
+                 .then(function (response) {
+                     // this callback will be called asynchronously
+                     // when the response is available
+                 }, function (response) {
+                     // called asynchronously if an error occurs
+                     // or server returns response with an error status.
+                 });
         }
 
         function getFormConfig() {
@@ -186,7 +186,8 @@
         }
 
         function init() {
-            var data = {
+            var data = null;
+            data = {
                 fields: [
                     {
                         key: 'occupancy',
