@@ -24,6 +24,7 @@
         vm.searchResults = [];
         vm.formModel = {};
         vm.formFields = [];
+        vm.useBootstrap = $rootScope.useBootstrap;
         vm.plainFormModel = {};
         vm.plainFormFields = [
                     {

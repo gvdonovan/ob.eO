@@ -36,6 +36,7 @@
                     clearBootstrap();
                 }
                 createCssLink(args.cssUrl);
+                $rootScope.useBootstrap = args.bootstrap ? true : false;
             });
         }
 

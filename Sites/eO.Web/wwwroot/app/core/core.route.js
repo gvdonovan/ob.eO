@@ -6,8 +6,9 @@
         .run(appRun);
 
     /* @ngInject */
-    function appRun(routerHelper, forms, formlyConfig, messenger) {
+    function appRun(routerHelper, forms, formlyConfig, messenger, $rootScope) {
         var otherwise = '/404';
+        $rootScope.useBootstrap = true;
         routerHelper.configureStates(getStates(), otherwise);
         forms.datePickerConfig(formlyConfig);
         forms.borrowerAliasConfig(formlyConfig);
