@@ -14,7 +14,8 @@
 
         var service = {
             init: init,
-            searchIsReady: searchIsReady
+            searchIsReady: searchIsReady,
+            send: send
         };
 
         return service;
@@ -26,21 +27,33 @@
                 initialized = true;
             }
 
+            angular.element(document).ready(function () {
+                send('OBWidgetInit', null);
+            });
+
+            $rootScope.$on('obWidgetContract', function (ev, args) {
+                createCssLink(args.cssUrl);
+            });
         }
 
         function searchIsReady() {
 
             var deferred = $q.defer();
-            var m = {
-                eventType: 'searchResultsInit'
-            };
-            var message = JSON.stringify(m);
-            window.parent.postMessage(message, '*');
+            send('searchResultsInit', null);
 
             $rootScope.$on('searchData', function (ev, args) {
                 deferred.resolve(args);
             });
             return deferred.promise;
+        }
+
+        function send(type, data) {
+            var m = {
+                eventType: type,
+                bag: data
+            };
+            var message = JSON.stringify(m);
+            $window.parent.postMessage(message, '*');
         }
 
         /*
@@ -63,5 +76,13 @@
                 }
             });
         };
+
+        function createCssLink(urlStr) {
+            var cssLink = document.createElement("link");
+            cssLink.href = urlStr;
+            cssLink.rel = "stylesheet";
+            cssLink.type = "text/css";
+            document.head.appendChild(cssLink);
+        }
     }
 }());

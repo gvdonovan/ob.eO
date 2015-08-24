@@ -165,7 +165,6 @@
                 };
                 var message = JSON.stringify(m);
                 window.parent.postMessage(message, '*');
-
             } else {
                 vm.isLoading = true;
                 return quickSearch.getResults(vm.formModel).then(function (data) {
