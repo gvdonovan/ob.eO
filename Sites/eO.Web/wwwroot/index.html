@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html ng-app="app">
 <head>
     <meta charset="UTF-8">
@@ -17,36 +17,7 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/customerTemplate.css" />
 
-    <!--<script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function (event) {
-            window.inIframe = false;
-            function angAppFunc(event) {
-                console.log("Angular app function called from outside, msg: "
-                            + event.data);
-                if (event.data != "OBHandshake") {
-                    window.iframeArgs = event.data;
-                    createCssLink(iframeArgs.cssUrl);
-                    inIframe = true;
-                }
-            }
-            function createCssLink(urlStr) {
-                var cssLink = document.createElement("link");
-                cssLink.href = urlStr;
-                cssLink.rel = "stylesheet";
-                cssLink.type = "text/css";
-                document.head.appendChild(cssLink);
-            }
-
-            window.parent.postMessage("OBHandshake", "*");
-
-            var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-            var eventer = window[eventMethod];
-            var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
-
-            eventer(messageEvent, angAppFunc, false);
-
-        });
-    </script>-->
+    
 </head>
 <body>
 

@@ -32,6 +32,9 @@
             });
 
             $rootScope.$on('obWidgetContract', function (ev, args) {
+                if (args.bootstrap == false) {
+                    clearBootstrap();
+                }
                 createCssLink(args.cssUrl);
             });
         }
@@ -82,7 +85,13 @@
             cssLink.href = urlStr;
             cssLink.rel = "stylesheet";
             cssLink.type = "text/css";
-            document.head.appendChild(cssLink);
+            angular.element("head").append(cssLink);
+        }
+
+        function clearBootstrap() {
+            console.log(angular.element("link[href$='bootstrap.css']"));
+            var bootstrapLink = angular.element("link[href$='bootstrap.css']");
+            bootstrapLink.remove();
         }
     }
 }());
