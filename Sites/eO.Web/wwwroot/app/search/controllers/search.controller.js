@@ -25,7 +25,6 @@
         vm.formModel = {};
         vm.formFields = [];
         vm.useBootstrap = $rootScope.useBootstrap;
-        vm.plainFormModel = {};
         vm.plainFormFields = [
                     {
                         key: 'occupancy',
@@ -160,12 +159,7 @@
         function submit() {
             // if app is in iframe an event will be raised to parent container when submit is clicked.
             if (vm.embedded) {
-                var m = {
-                    eventType: 'searchSubmitted',
-                    bag: vm.formModel
-                };
-                var message = JSON.stringify(m);
-                window.parent.postMessage(message, '*');
+                messenger.send('searchSubmitted', vm.formModel);
             } else {
                 vm.isLoading = true;
                 return quickSearch.getResults(vm.formModel).then(function (data) {

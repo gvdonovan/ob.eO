@@ -1,27 +1,35 @@
-﻿<div class="widthQuarter">
+﻿<div class="widthTwoThirds">
     <div class="accordion-container">
-        <div class="expandcollapse-item">
+        <div class="expandcollapse-item" ng-repeat="type in vm.searchResults">
             <div ng-click="active = !active" ng-class="{'expandcollapse-heading-collapsed': active, 'expandcollapse-heading-expanded': !active}">
-                <p>Item 1</p>
+                <p>{{type.title}}</p>
             </div>
             <div class="slideDown" ng-hide="active">
                 <div class="expand-collapse-content">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                    on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                    raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-            </div>
-        </div>
-
-        <div class="expandcollapse-item">
-            <div ng-click="active1 = !active1" ng-class="{'expandcollapse-heading-collapsed': active1, 'expandcollapse-heading-expanded': !active1}">
-                <p>Item 2</p>
-            </div>
-            <div class="slideDown" ng-hide="active1">
-                <div class="expand-collapse-content">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                    on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                    raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <table class="width98" id="plain-table">
+                        <thead>
+                            <tr>
+                                <th>Rate</th>
+                                <th>Disc Points</th>
+                                <th>APR</th>
+                                <th>Months Payment</th>
+                                <th>Closing Costs</th>
+                                <th>Rebate</th>
+                                <th>Apply</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in type.items">
+                                <td>{{item.rate}}</td>
+                                <td>{{item.discPoints}}</td>
+                                <td>{{item.apr}}</td>
+                                <td>{{item.months}}</td>
+                                <td>{{item.closingCost}}</td>
+                                <td>{{item.rebate}}</td>
+                                <td><a href="">Apply Now</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
