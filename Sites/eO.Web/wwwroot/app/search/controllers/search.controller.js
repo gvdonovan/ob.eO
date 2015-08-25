@@ -5,9 +5,9 @@
         .module('app.search')
         .controller('SearchController', SearchController);
 
-    SearchController.$inject = ['$rootScope', '$stateParams', '$q', 'logger', '$timeout', 'quickSearchService', '$window', 'messenger'];
+    SearchController.$inject = ['$rootScope', '$stateParams', '$q', 'logger', 'quickSearchService', 'messenger'];
     /* @ngInject */
-    function SearchController($rootScope, $stateParams, $q, logger, $timeout, quickSearch, $window, messenger) {
+    function SearchController($rootScope, $stateParams, $q, logger, quickSearch, messenger) {
         var vm = this;
 
         vm.embedded = false;
@@ -24,7 +24,6 @@
         vm.searchResults = [];
         vm.formModel = {};
         vm.formFields = [];
-        //vm.useBootstrap = $rootScope.useBootstrap;
         vm.plainFormFields = [
                     {
                         key: 'occupancy',
@@ -171,23 +170,15 @@
 
         function searchAndResults() {
             return messenger.searchIsReady().then(function (data) {
-                //TODO JA refactor
-                vm.bag = data;
-                console.log(vm.bag);
-                vm.bag.purchasePrice = Number(vm.bag.purchasePrice);
-                vm.bag.downPayment = Number(vm.bag.downPayment);
-                vm.formModel = vm.bag;
 
+                rebuildModel(data);
                 $q.all([
                     quickSearch.getFormConfig(),
                     quickSearch.getResults(vm.formModel)
                 ]).then(function (data) {
                     vm.data = data[0];
                     vm.formFields = data[0].fields;
-
                     vm.searchResults = data[1];
-                    //TODO JA: Bind variables from "biff"
-
                 });
             });
         }
@@ -197,6 +188,12 @@
                 vm.data = data;
                 vm.formFields = data.fields;
             });
+        }
+
+        function rebuildModel(bag) {
+            for (var x in bag) {
+                vm.formModel[x] = bag[x];
+            }
         }
     }
 })();
