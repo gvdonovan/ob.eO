@@ -187,6 +187,13 @@
         }
 
         function init() {
+            return $http.get('//localhost:62900/api/search/getFormData/1/2/3')
+                 .then(function (response) {
+                     return response.data;
+                 }, function (response) {
+                     console.warn('error' + response);
+                 });
+
             //var data = null;
             //data = {
             //    fields: [
