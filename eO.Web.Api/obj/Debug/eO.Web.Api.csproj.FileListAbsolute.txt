@@ -26,3 +26,31 @@ C:\Users\gdonovan\documents\visual studio 2015\Projects\eO\eO.Web.Api\bin\System
 C:\Users\gdonovan\documents\visual studio 2015\Projects\eO\eO.Web.Api\obj\Debug\eO.Web.Api.csprojResolveAssemblyReference.cache
 C:\Users\gdonovan\documents\visual studio 2015\Projects\eO\eO.Web.Api\obj\Debug\eO.Web.Api.dll
 C:\Users\gdonovan\documents\visual studio 2015\Projects\eO\eO.Web.Api\obj\Debug\eO.Web.Api.pdb
+C:\Source\Git\ob.eO\eO.Web.Api\bin\roslyn\csc.exe
+C:\Source\Git\ob.eO\eO.Web.Api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Source\Git\ob.eO\eO.Web.Api\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Source\Git\ob.eO\eO.Web.Api\bin\roslyn\System.Collections.Immutable.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\roslyn\System.Reflection.Metadata.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\roslyn\vbc.exe
+C:\Source\Git\ob.eO\eO.Web.Api\bin\roslyn\VBCSCompiler.exe
+C:\Source\Git\ob.eO\eO.Web.Api\bin\roslyn\VBCSCompiler.exe.config
+C:\Source\Git\ob.eO\eO.Web.Api\bin\eO.Web.Api.dll.config
+C:\Source\Git\ob.eO\eO.Web.Api\bin\eO.Web.Api.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\eO.Web.Api.pdb
+C:\Source\Git\ob.eO\eO.Web.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\Newtonsoft.Json.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\System.Net.Http.Formatting.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\System.Web.Http.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\System.Web.Http.WebHost.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Source\Git\ob.eO\eO.Web.Api\bin\Newtonsoft.Json.xml
+C:\Source\Git\ob.eO\eO.Web.Api\bin\System.Net.Http.Formatting.xml
+C:\Source\Git\ob.eO\eO.Web.Api\bin\System.Web.Http.xml
+C:\Source\Git\ob.eO\eO.Web.Api\bin\System.Web.Http.WebHost.xml
+C:\Source\Git\ob.eO\eO.Web.Api\obj\Debug\eO.Web.Api.csprojResolveAssemblyReference.cache
+C:\Source\Git\ob.eO\eO.Web.Api\obj\Debug\eO.Web.Api.dll
+C:\Source\Git\ob.eO\eO.Web.Api\obj\Debug\eO.Web.Api.pdb
