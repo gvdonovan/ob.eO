@@ -54,8 +54,10 @@ namespace eO.Web.Api.Models.Forms
     public class InputField : TemplateField
     {
         public InputField(string key, string label, bool required) : base (key, "input", label, required) { }
-        public InputField(string key, string label, bool required, AddOn addOnDirection, string addOnText, string addOnClass) : this(key, label, required)
+        public InputField(string key, string label, bool required, string placeHolder, AddOn addOnDirection, string addOnText, string addOnClass) : this(key, label, required)
         {
+            TemplateOptions.Placeholder = placeHolder;
+
             var addOn = new TemplateOptionAddOn(addOnText, addOnClass);
 
             if (addOnDirection == AddOn.Left)
