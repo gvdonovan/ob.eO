@@ -61,7 +61,7 @@ namespace eO.Web.Api.Controllers.Api
         {
             var searchForm = new SearchForm("1", "Biff Form");
             searchForm.Fields.Add(new SelectField("occupancy", "Occupancy", false, new List<SelectFieldOption> { new SelectFieldOption { Name = "Owner Occupied", Value = "Owner Occupied" }, new SelectFieldOption { Name = "Other", Value = "Other" }}));
-            searchForm.Fields.Add(new InputField("loanamount", "Loan Amount", false, AddOn.Left, "$", null));
+            searchForm.Fields.Add(new InputField("loanamount", "Loan Amount", false, "Loan Amount", AddOn.Left, "$", null));
             return searchForm;
         }
     }
