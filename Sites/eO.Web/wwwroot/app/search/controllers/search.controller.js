@@ -24,7 +24,7 @@
         vm.searchResults = [];
         vm.formModel = {};
         vm.formFields = [];
-        vm.useBootstrap = $rootScope.useBootstrap;
+        //vm.useBootstrap = $rootScope.useBootstrap;
         vm.plainFormFields = [
                     {
                         key: 'occupancy',

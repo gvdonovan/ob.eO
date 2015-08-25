@@ -23,7 +23,7 @@
 }
 
     #plainPanel #heading {
-        padding: 1em;
+        padding: .3em;
         background-color: #F0F0F0;
     }
 
@@ -51,11 +51,11 @@ table#plain-table tbody {
 
 /* ===Inputs/Buttons=== */
 #inputs-padding {
-    padding: 1em;
+    padding: .3em;
 }
 
 #input-wrapper {
-    width: 98%;
+    width: 100%;
 }
 
 #input-label {
@@ -67,7 +67,7 @@ table#plain-table tbody {
 }
 
 #select-wrapper {
-    width: 98%;
+    width: 100%;
 }
 
 #select-label {
@@ -93,7 +93,7 @@ table#plain-table tbody {
 
 .expandcollapse-heading-collapsed {
     cursor: pointer;
-    padding: 1em;
+    padding: .3em;
     color: black;
     background-color: #F0F0F0;
     margin-bottom: 1em;
@@ -112,7 +112,7 @@ table#plain-table tbody {
 
 .expandcollapse-heading-expanded {
     cursor: pointer;
-    padding: 1em;
+    padding: .3em;
     color: black;
     background-color: #F0F0F0;
     border: 1px solid #F0F0F0;
@@ -123,7 +123,7 @@ table#plain-table tbody {
     }
 
 .expand-collapse-content {
-    padding: 1em;
+    padding: .3em;
     border-left: 1px solid #F0F0F0;
     border-right: 1px solid #F0F0F0;
     border-bottom: 1px solid #F0F0F0;

@@ -1,20 +1,61 @@
-﻿
-/*CustomerContract*/
+﻿/* ===GLOBAL=== */
+.widthFull {
+    width: 100%;
+}
+
+.width98 {
+    width: 98%;
+}
+
+.widthTwoThirds {
+    width: 66%;
+}
+
+.widthQuarter {
+    display: inline-block;
+    width: 24%;
+    vertical-align: top;
+}
+
+/* ===Panel=== */
 #plainPanel {
     border: 1px solid #F0F0F0;
 }
 
-#plainPanel #heading {
-    padding: 2px;
-    background-color: #ff0000;
+    #plainPanel #heading {
+        padding: .3em;
+        background-color: #F0F0F0;
+    }
+
+/* ===Tabel=== */
+#plain-table {
 }
 
+table#plain-table thead {
+}
+
+    table#plain-table thead tr {
+    }
+
+        table#plain-table thead tr th {
+        }
+
+table#plain-table tbody {
+}
+
+    table#plain-table tbody tr {
+    }
+
+        table#plain-table tbody tr td {
+        }
+
+/* ===Inputs/Buttons=== */
 #inputs-padding {
-    padding: 1em;
+    padding: .3em;
 }
 
 #input-wrapper {
-    width: 98%;
+    width: 100%;
 }
 
 #input-label {
@@ -26,7 +67,7 @@
 }
 
 #select-wrapper {
-    width: 98%;
+    width: 100%;
 }
 
 #select-label {
@@ -37,14 +78,116 @@
     width: 66%;
 }
 
-.widthFull {
+#submit-button {
+}
+
+/* ===Accordion=== */
+.accordion-container {
     width: 100%;
 }
 
-.widthQuarter {
-    display: inline-block;
-    width: 24%;
-    vertical-align: top;
+.expandcollapse-item {
+    border-top: 1px solid #F0F0F0;
+    overflow-y: auto;
 }
 
-/*EndCustomerContract*/
+.expandcollapse-heading-collapsed {
+    cursor: pointer;
+    padding: .3em;
+    color: black;
+    background-color: #F0F0F0;
+    margin-bottom: 1em;
+}
+
+.expandcollapse-item:first-of-type {
+    border-top: 0;
+}
+
+
+.expandcollapse-heading-collapsed p {
+    margin: 0;
+}
+
+
+
+.expandcollapse-heading-expanded {
+    cursor: pointer;
+    padding: .3em;
+    color: black;
+    background-color: #F0F0F0;
+    border: 1px solid #F0F0F0;
+}
+
+    .expandcollapse-heading-expanded p {
+        margin: 0;
+    }
+
+.expand-collapse-content {
+    padding: .3em;
+    border-left: 1px solid #F0F0F0;
+    border-right: 1px solid #F0F0F0;
+    border-bottom: 1px solid #F0F0F0;
+    margin-bottom: 1em;
+}
+
+
+/*animation:*/
+
+.slideDown.ng-hide {
+    height: 0;
+    -moz-transition: height 0.35s ease;
+    -o-transition: height 0.35s ease;
+    -webkit-transition: height 0.35s ease;
+    transition: height 0.35s ease;
+    overflow: hidden;
+}
+
+.slideDown {
+    -moz-transition: 0.35s ease;
+    -o-transition: 0.35s ease;
+    -webkit-transition: 0.35s ease;
+    transition: 0.35s ease;
+    overflow: auto;
+}
+
+    .slideDown.ng-hide-remove,
+    .slideDown.ng-hide-add {
+        /* remember, the .hg-hide class is added to element
+  when the active class is added causing it to appear
+  as hidden. Therefore set the styling to display=block
+  so that the hide animation is visible */
+        display: block !important;
+    }
+
+
+    .slideDown.ng-hide-add {
+        -moz-animation-name: hide;
+        -o-animation-name: hide;
+        -webkit-animation-name: hide;
+        animation-name: hide;
+        -moz-animation-duration: .5s;
+        -o-animation-duration: .5s;
+        -webkit-animation-duration: .5s;
+        animation-duration: .5s;
+        -webkit-animation-timing-function: ease-in;
+        -moz-animation-timing-function: ease-in;
+        -o-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+
+
+
+    .slideDown.ng-hide-remove {
+        -webkit-animation-name: show;
+        -moz-animation-name: show;
+        -o-animation-name: show;
+        animation-name: show;
+        -webkit-animation-duration: .5s;
+        -moz-animation-duration: .5s;
+        -o-animation-duration: .5s;
+        animation-duration: .5s;
+        -webkit-animation-timing-function: ease-out;
+        -moz-animation-timing-function: ease-out;
+        -o-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
