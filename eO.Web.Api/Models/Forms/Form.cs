@@ -26,7 +26,6 @@ namespace eO.Web.Api.Models.Forms
         public SearchForm(string id, string name) : base(id, name)
         {
             Columns = new List<ResultColumn>();
-
         }        
     }
 
@@ -53,9 +52,10 @@ namespace eO.Web.Api.Models.Forms
 
     public class InputField : TemplateField
     {
-        public InputField(string key, string label, bool required) : base (key, "input", label, required) { }
-        public InputField(string key, string label, bool required, string placeHolder, AddOn addOnDirection, string addOnText, string addOnClass) : this(key, label, required)
+        public InputField(string key, string label, bool required) : this(key, label, required, null, null, null, null) { }
+        public InputField(string key, string label, bool required, string placeHolder, AddOn? addOnDirection, string addOnText, string addOnClass) : base(key, "input", label, required)
         {
+            TemplateOptions.Type = "text";
             TemplateOptions.Placeholder = placeHolder;
 
             var addOn = new TemplateOptionAddOn(addOnText, addOnClass);
@@ -67,6 +67,15 @@ namespace eO.Web.Api.Models.Forms
         }
     }
 
+    public class NumberField : InputField
+    {
+        public NumberField(string key, string label, bool required) : this(key, label, required, null, null, null, null) { }
+        public NumberField(string key, string label, bool required, string placeHolder, AddOn? addOnDirection, string addOnText, string addOnClass) : base(key, label, required)
+        {
+            TemplateOptions.Type = "number";         
+        }
+    }
+    
     public class SelectField : TemplateField
     {
         public SelectField(string key, string label, bool required, List<SelectFieldOption> options) : base (key, "select", label, required)
@@ -108,5 +117,74 @@ namespace eO.Web.Api.Models.Forms
     {
         Left,
         Right
+    }
+
+    public enum FieldType
+    {
+        Text,
+        Number,
+        Currency,
+        Select,
+        Email
+    }    
+
+    public static class TemplateFormFactory
+    {
+        public static TemplateForm Create(object data)
+        {
+            //TODO:
+            return null;
+        }
+    }
+
+    public static class TemplateFieldFactory
+    {
+        public static TemplateField Create(FieldType fieldType, object data)
+        {
+            switch (fieldType)
+            {
+                case FieldType.Text:
+                    return CreateTextField(data);
+
+                case FieldType.Number:
+                    return CreateNumberField(data);
+
+                case FieldType.Currency:
+                    return CreateTextField(data);
+
+                case FieldType.Select:
+                    return CreateTextField(data);
+
+                default:
+                    return CreateTextField(data);
+            }
+        }
+
+        private static TemplateField CreateTextField(object data)
+        {
+            //TODO
+            return new InputField("a", "b", false);
+        }
+
+        private static TemplateField CreateNumberField(object data)
+        {
+            //TODO
+            return new NumberField("a", "b", false);
+        }            
+
+        private static TemplateField CreateCurrencyField(object data, bool custom)
+        {
+            //TODO
+            if (custom) 
+                return new NumberField("a", "b", false);
+            else 
+                return new NumberField("a", "b", false, "Enter", AddOn.Left, "$", null);
+        }
+
+        private static TemplateField CreateSelectField(object data)
+        {
+            //TODO
+            return new SelectField("a", "b", false, null);
+        }
     }
 }
