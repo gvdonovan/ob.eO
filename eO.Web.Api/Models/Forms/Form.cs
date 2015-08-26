@@ -60,10 +60,13 @@ namespace eO.Web.Api.Models.Forms
 
             var addOn = new TemplateOptionAddOn(addOnText, addOnClass);
 
-            if (addOnDirection == AddOn.Left)
-                TemplateOptions.AddOnLeft = addOn;            
-            else 
-                TemplateOptions.AddOnRight = addOn;
+            if (addOn != null)
+            {
+                if (addOnDirection == AddOn.Left)
+                    TemplateOptions.AddonLeft = addOn;
+                else
+                    TemplateOptions.AddonRight = addOn;
+            }
         }
     }
 
@@ -90,8 +93,8 @@ namespace eO.Web.Api.Models.Forms
         public string Type { get; set; }
         public bool Required { get; set; }
         public string Placeholder { get; set; }
-        public TemplateOptionAddOn AddOnLeft { get; set; }
-        public TemplateOptionAddOn AddOnRight { get; set; }
+        public TemplateOptionAddOn AddonLeft { get; set; }
+        public TemplateOptionAddOn AddonRight { get; set; }
         public List<SelectFieldOption> Options { get; set; }
     }
 
@@ -185,6 +188,19 @@ namespace eO.Web.Api.Models.Forms
         {
             //TODO
             return new SelectField("a", "b", false, null);
+        }
+    }
+
+    public interface IBiffService
+    {
+        string GetName();
+    }
+
+    public class BiffService : IBiffService
+    {
+        public string GetName()
+        {
+            return "Biff Tanner";
         }
     }
 }

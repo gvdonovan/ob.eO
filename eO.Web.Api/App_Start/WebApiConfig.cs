@@ -1,8 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using Autofac;
+using Autofac.Integration.WebApi;
+using eO.Web.Api.Models.Forms;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -31,6 +35,13 @@ namespace eO.Web.Api
             settings.Formatting = Formatting.Indented;
             settings.NullValueHandling = NullValueHandling.Ignore;
             settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            //var builder = new ContainerBuilder();            
+            //builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            //var container = builder.Build();
+            //config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+
+            //builder.RegisterInstance<IBiffService>(new BiffService());
         }
     }
 }
