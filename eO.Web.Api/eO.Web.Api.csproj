@@ -48,6 +48,21 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="OB.Core">
+      <HintPath>..\Shared Assemblies\OB.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="OB.Core.Server">
+      <HintPath>..\Shared Assemblies\OB.Core.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="OB.FormsService">
+      <HintPath>..\Shared Assemblies\OB.FormsService.dll</HintPath>
+    </Reference>
+    <Reference Include="OB.FormsServiceDomain">
+      <HintPath>..\Shared Assemblies\OB.FormsServiceDomain.dll</HintPath>
+    </Reference>
+    <Reference Include="OB.Models">
+      <HintPath>..\Shared Assemblies\OB.Models.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
