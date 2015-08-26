@@ -29,10 +29,10 @@
         }
 
 
-        function getFormConfig() {
+        function getFormConfig(entityId, userId, formId) {
             var deferred = $q.defer();
             if (quickSearchFormConfig == null) {
-                quickSearchFormConfig = init();
+                quickSearchFormConfig = init(entityId, userId, formId);
             }
             deferred.resolve(quickSearchFormConfig);
             return deferred.promise;
@@ -186,8 +186,13 @@
             return results;
         }
 
-        function init() {
-            return $http.get('//localhost:62900/api/search/getFormData/1/2/3')
+        function init(entityId, userId, formId) {
+            entityId = entityId ? entityId : 1
+            userId = userId ? userId : 1
+            formId = formId ? formId : 1
+
+            var url = '//localhost:62900/api/search/getFormData/' + entityId + '/' + userId + '/' + formId;
+            return $http.get(url)
                  .then(function (response) {
                      return response.data;
                  }, function (response) {
