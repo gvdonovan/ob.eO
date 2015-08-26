@@ -13,7 +13,7 @@ namespace eO.Web.Api.Controllers.Api
     [RoutePrefix("api/search")]
     public class QuickSearchController : ApiController
     {
-        private IBiffService _biffService;
+        //private IBiffService _biffService;
 
         public QuickSearchController()
         {

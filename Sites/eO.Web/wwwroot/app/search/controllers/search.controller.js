@@ -157,7 +157,7 @@
 
         function submit() {
             // if app is in iframe an event will be raised to parent container when submit is clicked.
-            if (vm.embedded) {
+            if (vm.embedded && $stateParams.mode != 'results') {
                 messenger.send('searchSubmitted', vm.formModel);
             }
             else {
