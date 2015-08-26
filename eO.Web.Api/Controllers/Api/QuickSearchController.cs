@@ -13,10 +13,19 @@ namespace eO.Web.Api.Controllers.Api
     [RoutePrefix("api/search")]
     public class QuickSearchController : ApiController
     {
+        private IBiffService _biffService;
+
+        public QuickSearchController()
+        {
+            //_biffService = biffService;
+        }
+
         [HttpGet]
         [Route("show/{entityId}/{userId}/{formId}")]
         public HttpResponseMessage ShowForm(string entityId, string userId, int formId)
         {
+            //Console.WriteLine(_biffService.GetName());
+
             //TODO:  validate incoming parameters
             var response = Request.CreateResponse(HttpStatusCode.Redirect);
             var url = string.Format(WebConfigurationManager.AppSettings["QuickSearchUrl"], "true", "init", entityId, userId, formId);
