@@ -16,7 +16,7 @@ namespace eO.Web.Api.Models.Forms
         public TemplateForm(string id, string name)
         {
             Fields = new List<TemplateField>();
-        }        
+        }
     }
 
     public class SearchForm : TemplateForm
@@ -26,13 +26,13 @@ namespace eO.Web.Api.Models.Forms
         public SearchForm(string id, string name) : base(id, name)
         {
             Columns = new List<ResultColumn>();
-        }        
+        }
     }
 
     public class ResultColumn
     {
         public string Header { get; set; }
-        public string HelpText { get; set; }        
+        public string HelpText { get; set; }
     }
 
     public class TemplateField
@@ -58,14 +58,17 @@ namespace eO.Web.Api.Models.Forms
             TemplateOptions.Type = "text";
             TemplateOptions.Placeholder = placeHolder;
 
-            var addOn = new TemplateOptionAddOn(addOnText, addOnClass);
-
-            if (addOn != null)
+            if (addOnDirection != null)
             {
-                if (addOnDirection == AddOn.Left)
-                    TemplateOptions.AddonLeft = addOn;
-                else
-                    TemplateOptions.AddonRight = addOn;
+                var addOn = new TemplateOptionAddOn(addOnText, addOnClass);
+
+                if (addOn != null)
+                {
+                    if (addOnDirection == AddOn.Left)
+                        TemplateOptions.AddonLeft = addOn;
+                    else
+                        TemplateOptions.AddonRight = addOn;
+                }
             }
         }
     }
@@ -75,18 +78,30 @@ namespace eO.Web.Api.Models.Forms
         public NumberField(string key, string label, bool required) : this(key, label, required, null, null, null, null) { }
         public NumberField(string key, string label, bool required, string placeHolder, AddOn? addOnDirection, string addOnText, string addOnClass) : base(key, label, required)
         {
-            TemplateOptions.Type = "number";         
+            TemplateOptions.Type = "number";
+            TemplateOptions.Placeholder = placeHolder;
+            if (addOnDirection != null)
+            {
+                var addOn = new TemplateOptionAddOn(addOnText, addOnClass);
+                if (addOn != null)
+                {
+                    if (addOnDirection == AddOn.Left)
+                        TemplateOptions.AddonLeft = addOn;
+                    else
+                        TemplateOptions.AddonRight = addOn;
+                }
+            }
         }
     }
-    
+
     public class SelectField : TemplateField
     {
-        public SelectField(string key, string label, bool required, List<SelectFieldOption> options) : base (key, "select", label, required)
+        public SelectField(string key, string label, bool required, List<SelectFieldOption> options) : base(key, "select", label, required)
         {
             TemplateOptions.Options = options;
         }
     }
-    
+
     public class TemplateOptions
     {
         public string Label { get; set; }
@@ -113,8 +128,8 @@ namespace eO.Web.Api.Models.Forms
         {
             Text = text;
             Class = cssClass;
-        } 
-    }    
+        }
+    }
 
     public enum AddOn
     {
@@ -129,7 +144,7 @@ namespace eO.Web.Api.Models.Forms
         Currency,
         Select,
         Email
-    }    
+    }
 
     public static class TemplateFormFactory
     {
@@ -173,14 +188,14 @@ namespace eO.Web.Api.Models.Forms
         {
             //TODO
             return new NumberField("a", "b", false);
-        }            
+        }
 
         private static TemplateField CreateCurrencyField(object data, bool custom)
         {
             //TODO
-            if (custom) 
+            if (custom)
                 return new NumberField("a", "b", false);
-            else 
+            else
                 return new NumberField("a", "b", false, "Enter", AddOn.Left, "$", null);
         }
 
