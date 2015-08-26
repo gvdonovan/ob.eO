@@ -168,21 +168,22 @@
             }
         }
 
+        //gets form config and results
         function searchAndResults() {
             return messenger.searchIsReady().then(function (data) {
-
-                rebuildModel(data);
-                $q.all([
-                    quickSearch.getFormConfig(),
-                    quickSearch.getResults(vm.formModel)
-                ]).then(function (data) {
-                    vm.data = data[0];
-                    vm.formFields = data[0].fields;
-                    vm.searchResults = data[1];
+                var bag = data;
+                quickSearch.getFormConfig().then(function (data) {
+                    vm.data = data;
+                    vm.formFields = data.fields;
+                    rebuildModel(bag);
+                    quickSearch.getResults(vm.formModel).then(function (data) {
+                        vm.searchResults = data;
+                    });
                 });
             });
         }
 
+        //gets form config
         function getSearchForm() {
             return quickSearch.getFormConfig().then(function (data) {
                 vm.data = data;
@@ -190,9 +191,16 @@
             });
         }
 
+        // builds form model from query string; used when embedded
         function rebuildModel(bag) {
             for (var x in bag) {
-                vm.formModel[x] = bag[x];
+                var field = _.findWhere(vm.formFields, { key: x });
+                if (!_.isUndefined(field.templateOptions.type) && field.templateOptions.type.toLowerCase() == 'number') {
+                    vm.formModel[x] = Number(bag[x]);
+                }
+                else {
+                    vm.formModel[x] = bag[x];
+                }
             }
         }
     }
