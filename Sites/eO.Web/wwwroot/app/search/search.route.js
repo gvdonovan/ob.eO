@@ -17,7 +17,7 @@
             {
                 state: 'search',
                 config: {
-                    url: '/search?embedded&mode',
+                    url: '/search?embedded&mode&entityId&userId&formId',
                     templateUrl: 'app/search/views/search.html',
                     controller: 'SearchController',
                     controllerAs: 'vm',

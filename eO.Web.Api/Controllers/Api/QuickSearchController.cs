@@ -18,19 +18,18 @@ namespace eO.Web.Api.Controllers.Api
         public HttpResponseMessage ShowForm(string entityId, string userId, int formId)
         {
             //TODO:  validate incoming parameters
-
-            var response = Request.CreateResponse(HttpStatusCode.Redirect);
-            var url = WebConfigurationManager.AppSettings["QuickSearchUrl"];
+            var response = Request.CreateResponse(HttpStatusCode.Redirect);            
+            var url = string.Format(WebConfigurationManager.AppSettings["QuickSearchUrl"], true, "init", entityId, userId, formId);
             response.Headers.Location = new Uri(url);
             return response;
         }
 
         [HttpGet]
-        [Route("results")]
-        public HttpResponseMessage ShowResults()
+        [Route("results/{entityId}/{userId}/{formId}")]
+        public HttpResponseMessage ShowResults(string entityId, string userId, int formId)
         {
-            var response = Request.CreateResponse(HttpStatusCode.Redirect);
-            var url = WebConfigurationManager.AppSettings["QuickSearchResultsUrl"];
+            var response = Request.CreateResponse(HttpStatusCode.Redirect);            
+            var url = string.Format(WebConfigurationManager.AppSettings["QuickSearchUrl"], true, "results", entityId, userId, formId);
             response.Headers.Location = new Uri(url);
             return response;
         }

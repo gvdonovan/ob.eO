@@ -54,3 +54,6 @@ C:\Source\Git\ob.eO\eO.Web.Api\bin\System.Web.Http.WebHost.xml
 C:\Source\Git\ob.eO\eO.Web.Api\obj\Debug\eO.Web.Api.csprojResolveAssemblyReference.cache
 C:\Source\Git\ob.eO\eO.Web.Api\obj\Debug\eO.Web.Api.dll
 C:\Source\Git\ob.eO\eO.Web.Api\obj\Debug\eO.Web.Api.pdb
+C:\Source\Git\ob.eO\eO.Web.Api\bin\System.Web.Cors.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\System.Web.Http.Cors.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\System.Web.Http.Cors.xml
