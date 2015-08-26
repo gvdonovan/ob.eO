@@ -57,3 +57,8 @@ C:\Source\Git\ob.eO\eO.Web.Api\obj\Debug\eO.Web.Api.pdb
 C:\Source\Git\ob.eO\eO.Web.Api\bin\System.Web.Cors.dll
 C:\Source\Git\ob.eO\eO.Web.Api\bin\System.Web.Http.Cors.dll
 C:\Source\Git\ob.eO\eO.Web.Api\bin\System.Web.Http.Cors.xml
+C:\Source\Git\ob.eO\eO.Web.Api\bin\OB.Core.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\OB.Core.Server.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\OB.FormsService.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\OB.FormsServiceDomain.dll
+C:\Source\Git\ob.eO\eO.Web.Api\bin\OB.Models.dll

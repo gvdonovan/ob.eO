@@ -76,6 +76,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eO.Web.Api", "eO.Web.Api\eO.Web.Api.csproj", "{09036729-DB29-4F01-BA32-11E1D06EC678}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Assemblies", "Shared Assemblies", "{776D4224-E21D-4A2F-BE85-71FAE53E08F5}"
+	ProjectSection(SolutionItems) = preProject
+		Shared Assemblies\OB.Core.dll = Shared Assemblies\OB.Core.dll
+		Shared Assemblies\OB.Core.Server.dll = Shared Assemblies\OB.Core.Server.dll
+		Shared Assemblies\OB.FormsService.dll = Shared Assemblies\OB.FormsService.dll
+		Shared Assemblies\OB.FormsServiceDomain.dll = Shared Assemblies\OB.FormsServiceDomain.dll
+		Shared Assemblies\OB.Models.dll = Shared Assemblies\OB.Models.dll
+		Shared Assemblies\readme.txt = Shared Assemblies\readme.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
