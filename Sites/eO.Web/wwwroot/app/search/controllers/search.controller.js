@@ -5,9 +5,9 @@
         .module('app.search')
         .controller('SearchController', SearchController);
 
-    SearchController.$inject = ['$rootScope', '$stateParams', '$q', 'logger', 'quickSearchService', 'messenger'];
+    SearchController.$inject = ['$rootScope', '$stateParams', 'logger', 'quickSearchService', 'messenger'];
     /* @ngInject */
-    function SearchController($rootScope, $stateParams, $q, logger, quickSearch, messenger) {
+    function SearchController($rootScope, $stateParams, logger, quickSearch, messenger) {
         var vm = this;
 
         vm.embedded = false;
@@ -157,9 +157,10 @@
 
         function submit() {
             // if app is in iframe an event will be raised to parent container when submit is clicked.
-            if (vm.embedded) {
+            if (vm.embedded && $stateParams.mode != 'results') {
                 messenger.send('searchSubmitted', vm.formModel);
-            } else {
+            }
+            else {
                 vm.isLoading = true;
                 return quickSearch.getResults(vm.formModel).then(function (data) {
                     vm.searchResults = data;
@@ -172,7 +173,7 @@
         function searchAndResults() {
             return messenger.searchIsReady().then(function (data) {
                 var bag = data;
-                quickSearch.getFormConfig().then(function (data) {
+                quickSearch.getFormConfig($stateParams.entityId, $stateParams.userId, $stateParams.formId).then(function (data) {
                     vm.data = data;
                     vm.formFields = data.fields;
                     rebuildModel(bag);
@@ -185,7 +186,7 @@
 
         //gets form config
         function getSearchForm() {
-            return quickSearch.getFormConfig().then(function (data) {
+            return quickSearch.getFormConfig($stateParams.entityId, $stateParams.userId, $stateParams.formId).then(function (data) {
                 vm.data = data;
                 vm.formFields = data.fields;
             });
