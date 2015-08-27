@@ -1,5 +1,6 @@
 ﻿using eO.Web.Api.Models;
 using eO.Web.Api.Models.Forms;
+using OB.Services.FormsService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,19 +14,17 @@ namespace eO.Web.Api.Controllers.Api
     [RoutePrefix("api/search")]
     public class QuickSearchController : ApiController
     {
-        private IBiffService _biffService;
+        private IFormsService _formService;
 
         public QuickSearchController()
         {
-            //_biffService = biffService;
+            _formService = new FormsService();   
         }
 
         [HttpGet]
         [Route("show/{entityId}/{userId}/{formId}")]
         public HttpResponseMessage ShowForm(string entityId, string userId, int formId)
         {
-            //Console.WriteLine(_biffService.GetName());
-
             //TODO:  validate incoming parameters
             var response = Request.CreateResponse(HttpStatusCode.Redirect);            
             var url = string.Format(WebConfigurationManager.AppSettings["QuickSearchUrl"], "true", "init", entityId, userId, formId);
@@ -65,12 +64,15 @@ namespace eO.Web.Api.Controllers.Api
 
         [HttpGet]
         [Route("GetFormData/{entityId}/{userId}/{formId}")]
-        public SearchForm GetFormData(string entityId, string userId, int formId)
+        public TemplateForm GetFormData(string entityId, string userId, int formId)
         {
-            var searchForm = new SearchForm("1", "Biff Form");
-            searchForm.Fields.Add(new SelectField("occupancy", "Occupancy", false, new List<SelectFieldOption> { new SelectFieldOption { Name = "Owner Occupied", Value = "Owner Occupied" }, new SelectFieldOption { Name = "Other", Value = "Other" }}));
-            searchForm.Fields.Add(new InputField("loanamount", "Loan Amount", false, "Loan Amount", AddOn.Left, "$", null));
-            return searchForm;
+            var obForm = _formService.GetForm(1, 1, 1);
+            var clientForm = TemplateFormFactory.Create(obForm);
+
+            //var searchForm = new SearchForm("1", "Biff Form");
+            //searchForm.Fields.Add(new SelectField("occupancy", "Occupancy", false, new List<SelectFieldOption> { new SelectFieldOption { Name = "Owner Occupied", Value = "Owner Occupied" }, new SelectFieldOption { Name = "Other", Value = "Other" }}));
+            //searchForm.Fields.Add(new InputField("loanamount", "Loan Amount", false, "Loan Amount", AddOn.Left, "$", null));
+            return clientForm;
         }
     }
 
