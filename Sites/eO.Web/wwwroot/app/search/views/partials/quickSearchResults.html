@@ -1,30 +1,41 @@
-<accordion close-others="true" class="col-xs-6">
-    <accordion-group heading="{{type.title}}" ng-show="vm.searchResults != null" ng-repeat="type in vm.searchResults">
-        <div class="table-responsive">
-            <table class="table table-condensed table-hover">
-                <thead>
-                    <tr>
-                        <th>Rate</th>
-                        <th>Disc Points</th>
-                        <th>APR</th>
-                        <th>Months Payment</th>
-                        <th>Closing Costs</th>
-                        <th>Rebate</th>
-                        <th>Apply</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="item in type.items">
-                        <td>{{item.rate}}</td>
-                        <td>{{item.discPoints}}</td>
-                        <td>{{item.apr}}</td>
-                        <td>{{item.months}}</td>
-                        <td>{{item.closingCost}}</td>
-                        <td>{{item.rebate}}</td>
-                        <td><a class="clickable" href="">Apply Now</a></td>
-                    </tr>
-                </tbody>
-            </table>
+<div ng-show="vm.searchResults.length > 0" class="col-xs-8">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Results</div>
+        <div class="panel-body">
+
+            <accordion close-others="true" class="col-xs-12">
+                <accordion-group ng-repeat="type in vm.searchResults" is-open="type.status.open">
+                    <accordion-heading>
+                        {{type.title}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': type.status.open, 'glyphicon-chevron-right': !type.status.open}"></i>
+                    </accordion-heading>
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Rate</th>
+                                    <th>Disc Points</th>
+                                    <th>APR</th>
+                                    <th>Months Payment</th>
+                                    <th>Closing Costs</th>
+                                    <th>Rebate</th>
+                                    <th>Apply</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in type.items">
+                                    <td>{{item.rate}}</td>
+                                    <td>{{item.discPoints}}</td>
+                                    <td>{{item.apr}}</td>
+                                    <td>{{item.months}}</td>
+                                    <td>{{item.closingCost}}</td>
+                                    <td>{{item.rebate}}</td>
+                                    <td><a class="clickable" href="">Apply Now</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </accordion-group>
+            </accordion>
         </div>
-    </accordion-group>
-</accordion>
+    </div>
+</div>
