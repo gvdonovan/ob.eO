@@ -1,4 +1,5 @@
 ﻿using OB.Models.Forms;
+using OB.Services.FormsService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace eO.Web.Api.Models.Forms
 
         public TemplateForm(string id, string name)
         {
+            Name = name;
+            Header = name;
             Fields = new List<TemplateField>();
         }
     }
@@ -231,4 +234,31 @@ namespace eO.Web.Api.Models.Forms
     }
         
     #endregion    
+
+    public interface ITemplateFormService
+    {
+        TemplateForm GetForm(string clientId, string userId, int formId);
+    }
+
+    public class TemplateFormService : ITemplateFormService
+    {
+        public TemplateForm GetForm(string clientId, string userId, int formId)
+        {
+            IFormsService formService = new FormsService();
+            var obForm = formService.GetForm(1, 1, 1);
+            var form = TemplateFormFactory.Create(obForm);
+            return form;
+        }        
+    }
+
+    public class MockTemplateFormService : ITemplateFormService
+    {
+        public TemplateForm GetForm(string clientId, string userId, int formId)
+        {
+            var form = new SearchForm("1", "Biff Form");
+            form.Fields.Add(new SelectField("occupancy", "Occupancy", false, new List<SelectFieldOption> { new SelectFieldOption { Name = "Owner Occupied", Value = "Owner Occupied" }, new SelectFieldOption { Name = "Other", Value = "Other" }}));
+            form.Fields.Add(new InputField("loanamount", "Loan Amount", false, "Loan Amount", AddOn.Left, "$", null));
+            return form;
+        }
+    }
 }

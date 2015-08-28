@@ -17,6 +17,8 @@ namespace eO.Web.Api
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+
+            //TODO...
             var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
 
@@ -29,6 +31,7 @@ namespace eO.Web.Api
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            // Setup JSON 
             var formatters = GlobalConfiguration.Configuration.Formatters;
             var jsonFormatter = formatters.JsonFormatter;
             var settings = jsonFormatter.SerializerSettings;
@@ -36,12 +39,25 @@ namespace eO.Web.Api
             settings.NullValueHandling = NullValueHandling.Ignore;
             settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
-            //var builder = new ContainerBuilder();            
-            //builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-            //var container = builder.Build();
-            //config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+            // Setup AutoFac DI            
+            var builder = new ContainerBuilder();
 
-            //builder.RegisterInstance<IBiffService>(new BiffService());
+            // Register your Web API controllers.
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+
+            //TODO: Move this to Web.Config
+            //builder.RegisterType<TemplateFormService>()
+            builder.RegisterType<MockTemplateFormService>()
+                .As<ITemplateFormService>()
+                .SingleInstance();
+
+            // OPTIONAL: Register the Autofac filter provider.
+            //builder.RegisterWebApiFilterProvider(config);
+
+            // Set the dependency resolver to be Autofac.
+            var container = builder.Build();
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+            
         }
     }
 }

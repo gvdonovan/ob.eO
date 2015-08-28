@@ -14,18 +14,17 @@ namespace eO.Web.Api.Controllers.Api
     [RoutePrefix("api/search")]
     public class QuickSearchController : ApiController
     {
-        private IFormsService _formService;
-
-        public QuickSearchController()
+        ITemplateFormService _service;        
+        public QuickSearchController(ITemplateFormService service)
         {
-            _formService = new FormsService();   
+            _service = service;            
         }
 
         [HttpGet]
         [Route("show/{entityId}/{userId}/{formId}")]
         public HttpResponseMessage ShowForm(string entityId, string userId, int formId)
         {
-            //TODO:  validate incoming parameters
+            //TODO:  validate incoming parameters            
             var response = Request.CreateResponse(HttpStatusCode.Redirect);            
             var url = string.Format(WebConfigurationManager.AppSettings["QuickSearchUrl"], "true", "init", entityId, userId, formId);
             response.Headers.Location = new Uri(url);
@@ -66,13 +65,8 @@ namespace eO.Web.Api.Controllers.Api
         [Route("GetFormData/{entityId}/{userId}/{formId}")]
         public TemplateForm GetFormData(string entityId, string userId, int formId)
         {
-            var obForm = _formService.GetForm(1, 1, 1);
-            var clientForm = TemplateFormFactory.Create(obForm);
-
-            //var searchForm = new SearchForm("1", "Biff Form");
-            //searchForm.Fields.Add(new SelectField("occupancy", "Occupancy", false, new List<SelectFieldOption> { new SelectFieldOption { Name = "Owner Occupied", Value = "Owner Occupied" }, new SelectFieldOption { Name = "Other", Value = "Other" }}));
-            //searchForm.Fields.Add(new InputField("loanamount", "Loan Amount", false, "Loan Amount", AddOn.Left, "$", null));
-            return clientForm;
+            var form = _service.GetForm(entityId, userId, formId);
+            return form;
         }
     }
 
