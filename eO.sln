@@ -87,6 +87,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Assemblies", "Shared
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eO.Web.Api.Tests", "eO.Web.Api.Tests\eO.Web.Api.Tests.csproj", "{42A89E01-C142-48F9-B372-B73368BE39A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eO.Web.Config.Api", "eO.Web.Config.Api\eO.Web.Config.Api.csproj", "{412F56DC-D830-48C2-B57A-A695B68FE168}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +115,10 @@ Global
 		{42A89E01-C142-48F9-B372-B73368BE39A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42A89E01-C142-48F9-B372-B73368BE39A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42A89E01-C142-48F9-B372-B73368BE39A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{412F56DC-D830-48C2-B57A-A695B68FE168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412F56DC-D830-48C2-B57A-A695B68FE168}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{412F56DC-D830-48C2-B57A-A695B68FE168}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412F56DC-D830-48C2-B57A-A695B68FE168}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
