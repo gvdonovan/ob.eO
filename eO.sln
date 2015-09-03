@@ -113,6 +113,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "eO.Web.Config", "Sites\eO.W
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "eO", "eO", "{5D4794DD-5A26-409D-A4F3-E427F30F25BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ob.Formly", "ob.Formly\ob.Formly.csproj", "{D2DE346C-25D9-43C1-879C-76CDC428DC53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,10 @@ Global
 		{2DC4BFEB-8C63-4017-AB34-2DBE44161605}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DC4BFEB-8C63-4017-AB34-2DBE44161605}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{2DC4BFEB-8C63-4017-AB34-2DBE44161605}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{D2DE346C-25D9-43C1-879C-76CDC428DC53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2DE346C-25D9-43C1-879C-76CDC428DC53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2DE346C-25D9-43C1-879C-76CDC428DC53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2DE346C-25D9-43C1-879C-76CDC428DC53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
