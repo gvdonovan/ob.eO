@@ -1,0 +1,31 @@
+{
+	"name": "eo.web.config",
+	"private": true,
+	"ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {   
+    "angular": "~1.4.3",    
+    "angular-animate": "~1.4.3",
+    "angular-bootstrap": "~0.13.1",
+    "angular-formly": "~6.23.0",
+    "angular-formly-templates-bootstrap": "~6.0.0",
+    "angular-local-storage": "~0.2.2",
+    "angular-mocks": "~1.4.3",    
+    "angular-sanitize": "~1.4.3",
+    "angular-scroll": "~0.7.1",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5",
+    "datetimepicker": "~2.4.5",
+    "es6-shim": "~0.32.3",
+    "font-awesome": "~4.3.0",
+    "jquery": "~2.1.4",
+    "moment": "~2.10.3",        
+    "toastr": "~2.1.0",    
+    "underscore": "~1.8.3"
+  }
+}
