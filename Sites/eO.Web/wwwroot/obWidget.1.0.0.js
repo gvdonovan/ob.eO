@@ -5,8 +5,8 @@
         initObj : {            
             nav: 'self',
             src: '//www.optimalblue.com',
-            searchApi: '//localhost:62900/api/search/show/1/2/3',
-            resultsApi: '//localhost:62900/api/search/results/1/2/3',
+            searchApi: '//localhost:51639/api/search/show/1/2/3',
+            resultsApi: '//localhost:51639/api/search/results/1/2/3',
             width: '350px',
             height: '1000px',
             border: 'none',
@@ -40,7 +40,6 @@
         createOBWidget : function () {
             // create argument bag from query string
             widget.argBag = widget.utils.getUrlVars();
-
             // create iframe widget with customer arguments or defaults        
             var iframe = document.createElement('iframe');
             iframe.src = widget.initObj.src;

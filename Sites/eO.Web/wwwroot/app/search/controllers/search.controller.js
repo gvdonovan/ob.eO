@@ -18,6 +18,7 @@
             $rootScope.hideChrome = false;
         }
 
+        vm.apply = apply;
         vm.title = 'Quick Search';
         vm.submit = submit;
         vm.isLoading = false;
@@ -203,6 +204,10 @@
                     vm.formModel[x] = bag[x];
                 }
             }
+        }
+
+        function apply() {
+            window.open('//localhost:51639/api/loan/show/1/2/3');
         }
     }
 })();

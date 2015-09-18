@@ -163,22 +163,22 @@
                 .then(function (response) {
 
                     //if purchase
-                    var purchasePrice = _.findWhere(response.data.fields, { key: 'PurchasePrice' });
-                    purchasePrice['hideExpression'] = "model.LoanPurpose === '2' || model.LoanPurpose === '3'";
-                    var downPayment = _.findWhere(response.data.fields, { key: 'DownPayment' });
-                    downPayment['hideExpression'] = "model.LoanPurpose === '2' || model.LoanPurpose === '3'";
+                    var purchasePrice = _.findWhere(response.data.fields, { key: 'purchasePrice' });
+                    purchasePrice['hideExpression'] = "model.loanPurpose === '2' || model.loanPurpose === '3'";
+                    var downPayment = _.findWhere(response.data.fields, { key: 'downPayment' });
+                    downPayment['hideExpression'] = "model.loanPurpose === '2' || model.loanPurpose === '3'";
 
                     //if not purchase
-                    var loanAmount = _.findWhere(response.data.fields, { key: 'LoanAmount' });
+                    var loanAmount = _.findWhere(response.data.fields, { key: 'loanAmount' });
                     loanAmount['expressionProperties'] = {
                         'hide': function ($viewValue, $modelValue, scope) {
-                            return scope.model.LoanPurpose === '1' || !scope.model.LoanPurpose
+                            return scope.model.loanPurpose === '1' || !scope.model.loanPurpose
                         }
                     };
-                    var estimatedValue = _.findWhere(response.data.fields, { key: 'EstimatedValue' });
+                    var estimatedValue = _.findWhere(response.data.fields, { key: 'estimatedValue' });
                     estimatedValue['expressionProperties'] = {
                         'hide': function ($viewValue, $modelValue, scope) {
-                            return scope.model.LoanPurpose === '1' || !scope.model.LoanPurpose
+                            return scope.model.loanPurpose === '1' || !scope.model.loanPurpose
                         }
                     };
 
